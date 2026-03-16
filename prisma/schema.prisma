@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  slug        String    @unique
+  description String?
+  services    Service[]
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+model Service {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  slug         String        @unique
+  description  String
+  content      String
+  faq          Json?
+  categoryId   String?       @db.ObjectId
+  category     Category?     @relation(fields: [categoryId], references: [id])
+  leads        Lead[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+
+model Lead {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  email        String
+  phone        String
+  serviceSlug  String
+  service      Service? @relation(fields: [serviceSlug], references: [slug])
+  entityType   String?
+  createdAt    DateTime @default(now())
+}
+
+model Blog {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  title     String
+  slug      String   @unique
+  content   String
+  seo       Json?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model MegaMenu {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String   @unique
+  columns   Json
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
