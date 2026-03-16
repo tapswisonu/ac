@@ -17,7 +17,7 @@ export default function AboutPage() {
           <h2 className="text-2xl font-bold text-slate-800 mb-6">Making Accounting Marvels</h2>
           
           <p className="text-lg leading-relaxed text-slate-600 mb-6">
-            Aj Accounting-Group is an ISO 9001:2015 Certified and approved by Government of India. We are providing professional accounting services. We encompass a group of professionals that strive to provide highly customized and efficient deliverables on CA services, CFO services, and Account Outsourcing services and Certification ( IATA, RA's licence, ISO Certification etc) services.
+            Aj Accounting-Group is an ISO 9001:2015 Certified and approved by Government of India. We are providing professional accounting services. We encompass a group of professionals that strive to provide highly customized and efficient deliverables on CA services, CFO services, and Account Outsourcing services and Certification ( IATA, RA&apos;s licence, ISO Certification etc) services.
           </p>
 
           <p className="text-lg leading-relaxed text-slate-600 mb-8">

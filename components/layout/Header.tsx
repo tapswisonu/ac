@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
-  ChevronDown, Menu, X, Search, Building2, Landmark, Globe,
+  ChevronDown, Menu, X, Building2, Landmark, Globe,
   FileText, Receipt, Users, Award, Briefcase, Banknote, Building,
   Star, ShieldCheck, Zap, TrendingUp
 } from "lucide-react";
@@ -492,9 +492,16 @@ const megaMenuData = [
 /* ─────────────────────────────────────────
    MEGA MENU DROPDOWN
 ───────────────────────────────────────── */
-function MegaMenuDropdown({ menu }: { menu: typeof megaMenuData[0] }) {
+function MegaMenuDropdown({ menu, alignment = "center" }: { menu: typeof megaMenuData[0]; alignment?: "left" | "center" | "right" }) {
+  const alignmentClass =
+    alignment === "left"
+      ? "left-0"
+      : alignment === "right"
+      ? "right-0"
+      : "left-1/2 -translate-x-1/2";
+
   return (
-    <div className="absolute top-full left-1/2 -translate-x-1/2 w-[720px] xl:w-[820px] bg-white border border-gray-100 shadow-2xl rounded-xl overflow-hidden z-50">
+    <div className={`absolute top-full ${alignmentClass} w-[720px] xl:w-[820px] bg-white border border-gray-100 shadow-2xl rounded-xl overflow-hidden z-50 mt-1`}>
       {/* Popular strip */}
       <div className="bg-gradient-to-r from-orange-50 to-amber-50 border-b border-orange-100 px-6 py-3 flex items-center gap-3">
         <Star className="w-4 h-4 text-orange-500 shrink-0" />
@@ -540,7 +547,6 @@ function MegaMenuDropdown({ menu }: { menu: typeof megaMenuData[0] }) {
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
-  const [searchQuery, setSearchQuery] = useState("");
   const [mobileCategoryOpen, setMobileCategoryOpen] = useState<string | null>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -556,9 +562,9 @@ export default function Header() {
   useEffect(() => () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); }, []);
 
   return (
-    <header className="fixed w-full top-[76px] bg-white z-40 border-b border-gray-200 shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-10">
-        <div className="flex justify-between items-center h-[68px]">
+    <header className="fixed w-full top-[88px] bg-white z-40 border-b border-gray-200 shadow-sm">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
 
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -566,26 +572,33 @@ export default function Header() {
               <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-amber-400 rounded-lg flex items-center justify-center shadow">
                 <span className="text-white font-black text-sm">A</span>
               </div>
-              <div className="hidden sm:block">
-                <span className="text-orange-500 font-black text-lg tracking-tight">Aj</span>
-                <span className="text-gray-900 font-bold text-lg tracking-tight"> Accounting</span>
-                <span className="text-gray-500 font-medium text-sm block leading-none -mt-0.5">Group</span>
+              <div className="hidden sm:flex flex-col">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-orange-500 font-black text-[17px] tracking-tight leading-none">Aj</span>
+                  <span className="text-gray-900 font-bold text-[17px] tracking-tight leading-none">Accounting</span>
+                </div>
+                <span className="text-gray-500 font-medium text-[11px] leading-none mt-0.5 tracking-wider uppercase">Group</span>
               </div>
             </Link>
           </div>
 
           {/* Desktop Mega Nav */}
           <nav className="hidden xl:flex items-center h-full relative">
-            {megaMenuData.map((menu) => (
+            {megaMenuData.map((menu, index) => {
+              let alignment: "left" | "center" | "right" = "center";
+              if (index < 4) alignment = "left";
+              else if (index > 6) alignment = "right";
+
+              return (
               <div
                 key={menu.name}
                 className="relative h-full flex items-center"
                 onMouseEnter={() => handleMouseEnter(menu.name)}
                 onMouseLeave={handleMouseLeave}
               >
-                <button className={`flex items-center gap-0.5 px-3 py-2 text-sm font-medium transition-colors ${activeMenu === menu.name ? "text-orange-500" : "text-gray-700 hover:text-orange-500"}`}>
+                <button className={`flex items-center gap-0.5 px-1.5 py-2 text-xs font-medium whitespace-nowrap transition-colors ${activeMenu === menu.name ? "text-orange-500" : "text-gray-700 hover:text-orange-500"}`}>
                   {menu.name}
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${activeMenu === menu.name ? "rotate-180 text-orange-500" : ""}`} />
+                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeMenu === menu.name ? "rotate-180" : ""}`} />
                 </button>
 
                 {/* Active indicator bar */}
@@ -594,39 +607,26 @@ export default function Header() {
                 )}
 
                 {/* Mega menu */}
-                {activeMenu === menu.name && <MegaMenuDropdown menu={menu} />}
+                {activeMenu === menu.name && <MegaMenuDropdown menu={menu} alignment={alignment} />}
               </div>
-            ))}
+            );
+            })}
           </nav>
 
-          {/* Search + CTA (desktop) */}
-          <div className="hidden lg:flex items-center gap-3">
-            {/* Search */}
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search services..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-9 pr-4 py-2 text-sm border border-gray-200 rounded-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-400 focus:border-transparent w-44 focus:w-56 transition-all"
-              />
-            </div>
-
+          {/* CTA (desktop) */}
+          <div className="hidden lg:flex items-center gap-2">
             {/* CTA */}
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-orange-500 to-amber-500 text-white px-5 py-2 rounded-full font-semibold text-sm hover:from-orange-600 hover:to-amber-600 transition-all shadow-md shadow-orange-200 whitespace-nowrap"
+              className="hidden 2xl:flex items-center gap-1.5 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-4 py-1.5 rounded-full font-semibold text-[13px] hover:from-orange-600 hover:to-amber-600 transition-all shadow-sm"
             >
               Free Consultation
             </Link>
           </div>
 
-          {/* Mobile: Search icon + hamburger */}
+
+          {/* Mobile: hamburger */}
           <div className="xl:hidden flex items-center gap-2">
-            <button className="p-2 text-gray-600 hover:text-orange-500 transition-colors">
-              <Search className="w-5 h-5" />
-            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
@@ -641,18 +641,6 @@ export default function Header() {
       {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="xl:hidden bg-white border-t border-gray-100 absolute w-full max-h-[80vh] overflow-y-auto z-40 shadow-xl">
-          {/* Mobile Search */}
-          <div className="p-4 border-b border-gray-100">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-              <input
-                type="text"
-                placeholder="Search services..."
-                className="w-full pl-9 pr-4 py-2.5 text-sm border border-gray-200 rounded-full bg-gray-50 focus:outline-none focus:ring-2 focus:ring-orange-400"
-              />
-            </div>
-          </div>
-
           <div className="px-4 py-2 flex flex-col">
             <Link href="/" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-3 border-b border-gray-50 text-sm font-semibold text-gray-900">Home</Link>
             <Link href="/about" onClick={() => setMobileMenuOpen(false)} className="block px-3 py-3 border-b border-gray-50 text-sm font-semibold text-gray-900">About</Link>

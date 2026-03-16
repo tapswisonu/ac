@@ -6,6 +6,8 @@ import { CheckCircle2 } from 'lucide-react';
 
 import type { Metadata } from 'next';
 
+import { constructMetadata } from '@/lib/seo';
+
 export const dynamic = 'force-dynamic';
 
 type Props = {
@@ -15,12 +17,12 @@ type Props = {
 export async function generateMetadata(
   { params }: Props
 ): Promise<Metadata> {
-  // Normally we would query the database here
   const title = params.slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-  return {
-    title: `${title} | LegalServe`,
-    description: `Expert and fast legal services for ${title}.`,
-  }
+  return constructMetadata({
+    title: `${title} Service`,
+    description: `Expert and fast legal services for ${title}. Complete compliance support and hassle-free registration.`,
+    url: `/services/${params.slug}`
+  });
 }
 
 export default async function ServicePage({ params }: { params: { slug: string } }) {

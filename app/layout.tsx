@@ -8,10 +8,9 @@ import ContactBar from "@/components/layout/ContactBar";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata: Metadata = {
-  title: "Aj Accounting-Group - Premium Accounting & Financial Services",
-  description: "Aj Accounting-Group is an ISO 9001:2015 Certified firm providing CA, CFO, and Account Outsourcing services in Noida and Delhi.",
-};
+import { constructMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = constructMetadata();
 
 export default function RootLayout({
   children,
@@ -24,7 +23,7 @@ export default function RootLayout({
         <ContactBar />
         <AnnouncementBar />
         <Header />
-        <main className="flex-1 pt-[144px]">
+        <main className="flex-1 pt-[168px]">
           {children}
         </main>
         <Footer />
