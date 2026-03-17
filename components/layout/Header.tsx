@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ChevronDown, Menu, X, Building2, Landmark, Globe,
   FileText, Receipt, Users, Award, Briefcase, Banknote, Building,
@@ -569,15 +570,14 @@ export default function Header() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-orange-500 to-amber-400 rounded-lg flex items-center justify-center shadow">
-                <span className="text-white font-black text-sm">A</span>
-              </div>
-              <div className="hidden sm:flex flex-col">
-                <div className="flex items-baseline gap-1">
-                  <span className="text-orange-500 font-black text-[17px] tracking-tight leading-none">Aj</span>
-                  <span className="text-gray-900 font-bold text-[17px] tracking-tight leading-none">Accounting</span>
-                </div>
-                <span className="text-gray-500 font-medium text-[11px] leading-none mt-0.5 tracking-wider uppercase">Group</span>
+              <div className="relative w-40 h-12 sm:w-48 sm:h-14">
+                <Image 
+                  src="/biglogo.png" 
+                  alt="Aj Accounting Group Logo" 
+                  fill 
+                  className="object-contain object-left" 
+                  priority 
+                />
               </div>
             </Link>
           </div>

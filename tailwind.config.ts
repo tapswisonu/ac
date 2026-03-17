@@ -10,8 +10,9 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        primary: "#f59e0b",
-        secondary: "#facc15",
+        primary: "#1E4F9C",
+        secondary: "#4CAF50",
+        accent: "#2E7D32",
       },
       keyframes: {
         'announcement': {

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
@@ -7,8 +8,15 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
         {/* Company Info */}
         <div className="col-span-1 md:col-span-1 border-gray-700">
-          <Link href="/" className="text-2xl font-bold tracking-tight mb-6 inline-block font-serif">
-            <span className="text-orange-500">Aj</span> Accounting-Group
+          <Link href="/" className="mb-6 inline-block">
+            <div className="relative w-48 h-12">
+              <Image 
+                src="/logo.png" 
+                alt="Aj Accounting Group Logo" 
+                fill 
+                className="object-contain object-left" 
+              />
+            </div>
           </Link>
           <p className="text-gray-400 mb-6 leading-relaxed text-sm">
             Ajaccounting-Group is an ISO 9001:2015 Certified accounting and finance firm with operations in Noida and Delhi. We operate with over 5 years of experience helping customers with their accounting and financial needs.
