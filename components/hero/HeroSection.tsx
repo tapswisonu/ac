@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight, Phone, CheckCircle, TrendingUp, FileText, Building2, Award } from 'lucide-react';
+import { ArrowRight, Phone, CheckCircle, TrendingUp, FileText, Building2, Award, ShieldCheck } from 'lucide-react';
 import { FaStar, FaUsers, FaBuilding, FaUtensils, FaFileInvoiceDollar, FaTrademark } from 'react-icons/fa';
 
 const serviceHighlights = [
@@ -41,7 +41,7 @@ function FloatingServiceCards() {
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-slate-950 flex flex-col justify-center min-h-[calc(100vh-120px)] lg:min-h-0 border-b border-primary-900/30">
+    <section className="relative overflow-hidden bg-slate-950 flex flex-col justify-center min-h-[calc(100vh-90px)] border-b border-primary-900/30">
       {/* Background patterns and glowing orbs */}
       <div
         className="absolute inset-0 opacity-[0.02]"
@@ -53,12 +53,12 @@ export default function HeroSection() {
       <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary-600/20 rounded-full blur-[100px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary-500/10 rounded-full blur-[100px] translate-x-1/4 translate-y-1/4 pointer-events-none" />
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16 lg:py-20 flex-grow flex items-center">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-10 lg:gap-12 items-center">
+      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-4 flex-grow flex items-center">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-10 items-center">
           
           {/* Text Content */}
-          <div className="text-white flex flex-col justify-center w-full">
-            <h1 className="animate-fade-in-up-d1 text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-extrabold leading-[1.15] tracking-tight text-white">
+          <div className="text-white flex flex-col justify-center w-full max-w-2xl lg:pr-8">
+            <h1 className="animate-fade-in-up-d1 text-4xl sm:text-5xl lg:text-[52px] font-extrabold leading-[1.12] tracking-tight text-white mb-5">
               India's Most Trusted <br className="hidden sm:block" />
               <span className="text-primary-400">
                Corporate Compliance
@@ -67,20 +67,20 @@ export default function HeroSection() {
               Platform
             </h1>
             
-            <p className="animate-fade-in-up-d2 mt-5 text-base sm:text-lg text-slate-400 leading-relaxed max-w-lg">
+            <p className="animate-fade-in-up-d2 text-base sm:text-lg text-slate-400 leading-relaxed max-w-lg mb-6">
               Expert-led support, fast turnaround, secure processing, and transparent pricing. Focus on your business while we handle the legalities.
             </p>
 
-            <div className="animate-fade-in-up-d2 flex flex-wrap gap-x-5 gap-y-3 mt-6">
+            <div className="animate-fade-in-up-d2 flex flex-wrap gap-x-3 gap-y-2 mb-8">
               {serviceHighlights.map((s, i) => (
-                <div key={i} className="flex items-center gap-2 text-sm text-slate-300 font-medium">
+                <div key={i} className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-300 font-medium bg-slate-900/80 px-3 py-1.5 rounded-full border border-slate-800 shadow-sm backdrop-blur-sm">
                   {s.icon}
                   {s.label}
                 </div>
               ))}
             </div>
 
-            <div className="animate-fade-in-up-d3 flex flex-col sm:flex-row gap-4 mt-8">
+            <div className="animate-fade-in-up-d3 flex flex-col sm:flex-row gap-4 mb-8">
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-500 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-primary-600/20 transition-all hover:shadow-primary-600/40 hover:-translate-y-0.5 whitespace-nowrap"
@@ -90,46 +90,46 @@ export default function HeroSection() {
               </Link>
               <a
                 href="tel:9643862867"
-                className="inline-flex items-center justify-center gap-2 border border-slate-700 bg-slate-900/50 hover:bg-slate-800 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-2 border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all whitespace-nowrap backdrop-blur-sm"
               >
                 <Phone className="w-4 h-4 text-slate-400" />
                 Talk to an Expert
               </a>
             </div>
 
-            {/* Bottom Trust Indicators placed efficiently */}
-            <div className="animate-fade-in-up-d4 mt-8 pt-6 border-t border-slate-800/80">
-              <div className="flex flex-col sm:flex-row sm:items-center gap-5 sm:gap-8">
-                {/* Stars and Users */}
-                <div>
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <FaStar key={i} className="w-4 h-4 text-secondary-500" />
-                      ))}
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 text-sm text-slate-300">
-                    <FaUsers className="w-4 h-4 text-primary-400" />
-                    <span>Trusted by <span className="font-bold text-white tracking-wide">1,00,000+</span></span>
-                  </div>
-                </div>
-
-                {/* Badges */}
-                <div className="flex flex-wrap gap-2.5">
-                  {["ISO 9001:2015", "Nationwide Support", "CA & CS Experts"].map((badge, i) => (
-                    <span key={i} className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-300 bg-slate-800/40 border border-slate-700/50 px-3 py-1.5 rounded-lg">
-                      <CheckCircle className="w-3.5 h-3.5 text-accent-500 shrink-0" />
-                      {badge}
-                    </span>
+            {/* Hyper-Compact Trust Proof */}
+            <div className="animate-fade-in-up-d4 flex flex-wrap items-center gap-5 bg-slate-900/40 p-3.5 sm:px-5 sm:py-3.5 rounded-2xl border border-slate-800/60 w-fit backdrop-blur-sm">
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-2">
+                  {[1, 2, 3].map((i) => (
+                    <img key={i} className="w-8 h-8 rounded-full border-2 border-slate-950" src={`https://i.pravatar.cc/100?img=${i + 15}`} alt={`User ${i}`} />
                   ))}
+                </div>
+                <div>
+                  <div className="flex gap-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <FaStar key={i} className="w-3.5 h-3.5 text-secondary-500" />
+                    ))}
+                  </div>
+                  <div className="text-xs font-bold text-slate-200 mt-0.5">100,000+ <span className="text-slate-400 font-medium">Businesses</span></div>
+                </div>
+              </div>
+
+              <div className="hidden sm:block w-px h-8 bg-slate-700"></div>
+
+              <div className="flex flex-col gap-1.5">
+                <div className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold text-slate-300">
+                   <CheckCircle className="w-3.5 h-3.5 text-accent-500" /> ISO 9001:2015 Target
+                </div>
+                <div className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold text-slate-300">
+                   <ShieldCheck className="w-3.5 h-3.5 text-accent-500" /> CA & CS Experts
                 </div>
               </div>
             </div>
           </div>
 
           {/* Right side graphic */}
-          <div className="w-full flex justify-center lg:justify-end">
+          <div className="w-full flex justify-center lg:justify-end mt-10 lg:mt-0">
             <FloatingServiceCards />
           </div>
         </div>

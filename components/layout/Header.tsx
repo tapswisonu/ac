@@ -565,12 +565,12 @@ export default function Header() {
   return (
     <header className="fixed w-full top-[88px] bg-white z-40 border-b border-gray-200 shadow-sm">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-15">
+        <div className="flex justify-between items-center h-[72px]">
 
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2">
-              <div className="relative w-40 h-12 sm:w-48 sm:h-14">
+              <div className="relative w-40 h-10 sm:w-48 sm:h-12">
                 <Image 
                   src="/biglogo.png" 
                   alt="Aj Accounting Group Logo" 
