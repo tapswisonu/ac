@@ -504,11 +504,11 @@ function MegaMenuDropdown({ menu, alignment = "center" }: { menu: typeof megaMen
   return (
     <div className={`absolute top-full ${alignmentClass} w-[720px] xl:w-[820px] bg-white border border-gray-100 shadow-2xl rounded-xl overflow-hidden z-50 mt-1`}>
       {/* Popular strip */}
-      <div className="bg-gradient-to-r from-primary-50 to-amber-50 border-b border-primary-100 px-6 py-3 flex items-center gap-3">
-        <Star className="w-4 h-4 text-primary-500 shrink-0" />
-        <span className="text-xs font-bold text-primary-600 uppercase tracking-wider mr-2">Popular:</span>
+      <div className="bg-gradient-to-r from-secondary-50 to-orange-50 border-b border-secondary-100 px-6 py-3 flex items-center gap-3">
+        <Star className="w-4 h-4 text-secondary-500 shrink-0" />
+        <span className="text-xs font-bold text-secondary-600 uppercase tracking-wider mr-2">Popular:</span>
         {menu.popular.map((p, i) => (
-          <span key={i} className="text-xs bg-white border border-primary-200 text-primary-700 px-3 py-1 rounded-full font-medium hover:bg-primary-500 hover:text-white hover:border-primary-500 cursor-pointer transition-colors">
+          <span key={i} className="text-xs bg-white border border-secondary-200 text-secondary-700 px-3 py-1 rounded-full font-medium hover:bg-primary-500 hover:text-white hover:border-primary-500 cursor-pointer transition-colors">
             {p}
           </span>
         ))}
@@ -527,7 +527,7 @@ function MegaMenuDropdown({ menu, alignment = "center" }: { menu: typeof megaMen
                 <li key={lidx}>
                   <Link
                     href={link.url}
-                    className="text-sm text-gray-700 hover:text-primary-500 transition-colors flex items-center gap-1 group"
+                    className="text-[13px] text-gray-700 hover:text-primary-500 transition-colors flex items-center gap-1 group"
                   >
                     <span className="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-primary-400 transition-colors shrink-0" />
                     {link.title}
@@ -565,12 +565,12 @@ export default function Header() {
   return (
     <header className="fixed w-full top-[88px] bg-white z-40 border-b border-gray-200 shadow-sm">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-[72px]">
 
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2">
-              <div className="relative w-40 h-12 sm:w-48 sm:h-14">
+              <div className="relative w-40 h-10 sm:w-48 sm:h-12">
                 <Image 
                   src="/biglogo.png" 
                   alt="Aj Accounting Group Logo" 
@@ -613,16 +613,7 @@ export default function Header() {
             })}
           </nav>
 
-          {/* CTA (desktop) */}
-          <div className="hidden lg:flex items-center gap-2">
-            {/* CTA */}
-            <Link
-              href="/contact"
-              className="hidden 2xl:flex items-center gap-1.5 bg-gradient-to-r from-primary-500 to-amber-500 text-white px-4 py-1.5 rounded-full font-semibold text-[13px] hover:from-primary-600 hover:to-amber-600 transition-all shadow-sm"
-            >
-              Free Consultation
-            </Link>
-          </div>
+          
 
 
           {/* Mobile: hamburger */}
@@ -660,7 +651,7 @@ export default function Header() {
                       <div key={idx} className="mb-3">
                         <p className="text-xs font-bold text-gray-400 uppercase tracking-wider px-3 mb-1">{col.title}</p>
                         {col.links.map((link, lidx) => (
-                          <Link key={lidx} href={link.url} onClick={() => setMobileMenuOpen(false)} className="block px-3 py-1.5 text-sm text-gray-700 hover:text-primary-500">
+                          <Link key={lidx} href={link.url} onClick={() => setMobileMenuOpen(false)} className="block px-3 py-1.5 text-[13px] text-gray-700 hover:text-primary-500">
                             {link.title}
                           </Link>
                         ))}
@@ -672,7 +663,7 @@ export default function Header() {
             ))}
 
             <div className="p-4">
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block w-full text-center bg-gradient-to-r from-primary-500 to-amber-500 text-white py-3 rounded-full font-semibold text-sm">
+              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center bg-primary-600 text-white py-3 rounded-lg font-semibold text-sm hover:bg-primary-700 transition-all duration-300">
                 Free Consultation
               </Link>
             </div>

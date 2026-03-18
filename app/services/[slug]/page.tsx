@@ -53,7 +53,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
               Get comprehensive, fully-managed assistance for {serviceName}. We handle the complexity so you can focus on building your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <a href="#lead-form" className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full text-center transition-colors shadow-lg">
+              <a href="#lead-form" className="bg-orange-400 hover:bg-orange-500 text-black font-bold py-4 px-8 rounded-full text-center transition-colors shadow-lg">
                 Get Started
               </a>
               <div className="flex items-center text-primary-200 justify-center sm:justify-start mt-4 sm:mt-0">
