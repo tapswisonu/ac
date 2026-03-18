@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Phone, CheckCircle, TrendingUp, FileText, Building2, Award, ShieldCheck } from 'lucide-react';
-import { FaStar, FaUsers, FaBuilding, FaUtensils, FaFileInvoiceDollar, FaTrademark } from 'react-icons/fa';
+import { FaStar, FaBuilding, FaUtensils, FaFileInvoiceDollar, FaTrademark } from 'react-icons/fa';
 
 const serviceHighlights = [
   { icon: <Building2 className="w-4 h-4 text-accent-400 shrink-0" />, label: "Company Registration" },
@@ -59,7 +60,7 @@ export default function HeroSection() {
           {/* Text Content */}
           <div className="text-white flex flex-col justify-center w-full max-w-2xl lg:pr-8">
             <h1 className="animate-fade-in-up-d1 text-4xl sm:text-5xl lg:text-[52px] font-extrabold leading-[1.12] tracking-tight text-white mb-5">
-              India's Most Trusted <br className="hidden sm:block" />
+              India&apos;s Most Trusted <br className="hidden sm:block" />
               <span className="text-primary-400">
                Corporate Compliance
               </span>
@@ -102,7 +103,7 @@ export default function HeroSection() {
               <div className="flex items-center gap-3">
                 <div className="flex -space-x-2">
                   {[1, 2, 3].map((i) => (
-                    <img key={i} className="w-8 h-8 rounded-full border-2 border-slate-950" src={`https://i.pravatar.cc/100?img=${i + 15}`} alt={`User ${i}`} />
+                    <Image key={i} className="w-8 h-8 rounded-full border-2 border-slate-950" src={`https://i.pravatar.cc/100?img=${i + 15}`} alt={`User ${i}`} width={32} height={32} />
                   ))}
                 </div>
                 <div>

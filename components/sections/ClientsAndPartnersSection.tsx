@@ -24,7 +24,7 @@ const partners = [
 ];
 
 export default function ClientsAndPartnersSection() {
-  const LogoCard = ({ item }: { item: any }) => (
+  const LogoCard = ({ item }: { item: { name: string; icon: React.ElementType; color: string; bg: string } }) => (
     <div className="flex-shrink-0 w-56 h-20 mx-3 bg-white border border-slate-100 rounded-2xl flex items-center justify-center cursor-pointer group hover:border-slate-200 hover:shadow-lg hover:shadow-primary-500/5 transition-all duration-300">
       <div className="flex items-center gap-3 transition-transform duration-300 group-hover:scale-105">
         <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${item.bg} ${item.color} group-hover:shadow-sm transition-all duration-300`}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ContactForm from '@/components/forms/ContactForm';
 
 export default function ContactPage() {
@@ -30,7 +31,7 @@ export default function ContactPage() {
               </span>
             </h1>
             <p className="text-lg lg:text-xl text-primary-100 mb-12 max-w-lg">
-              Partner with India's most trusted legal advisors. Get personalized solutions for your business registration, taxation, and compliance needs.
+              Partner with India&apos;s most trusted legal advisors. Get personalized solutions for your business registration, taxation, and compliance needs.
             </p>
 
             <div className="space-y-6 mb-12">
@@ -76,7 +77,7 @@ export default function ContactPage() {
             <div className="flex items-center gap-4 bg-primary-900/50 p-4 rounded-2xl border border-primary-800/50 backdrop-blur-sm">
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
-                  <img key={i} className="w-10 h-10 rounded-full border-2 border-primary-900" src={`https://i.pravatar.cc/100?img=${i + 10}`} alt={`User ${i}`} />
+                  <Image key={i} className="w-10 h-10 rounded-full border-2 border-primary-900" src={`https://i.pravatar.cc/100?img=${i + 10}`} alt={`User ${i}`} width={40} height={40} />
                 ))}
               </div>
               <div>
@@ -92,7 +93,6 @@ export default function ContactPage() {
 
       {/* Right Column (Form) */}
       <div className="w-full lg:w-7/12 bg-slate-50 flex items-center justify-center p-6 sm:p-8 lg:p-16 xl:p-24 min-h-[600px] relative">
-         <div className="absolute inset-0 bg-[url('/noise.png')] opacity-20 pointer-events-none mix-blend-overlay"></div>
          {/* Subtle Grid Pattern */}
          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
          
