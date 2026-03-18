@@ -7,8 +7,8 @@ export default function WhyChooseUsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 text-center">
           <div className="p-8 rounded-2xl border border-gray-100 hover:shadow-lg transition-shadow group">
-            <div className="w-14 h-14 bg-orange-100 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-orange-500 transition-colors">
-              <Shield className="w-7 h-7 text-orange-500 group-hover:text-white transition-colors" />
+            <div className="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center mx-auto mb-5 group-hover:bg-primary-500 transition-colors">
+              <Shield className="w-7 h-7 text-primary-500 group-hover:text-white transition-colors" />
             </div>
             <h3 className="text-xl font-bold mb-3 text-slate-900">Domain Experts</h3>
             <p className="text-slate-600 leading-relaxed">Our network of CAs, CSs, and Lawyers ensures perfection in every step.</p>

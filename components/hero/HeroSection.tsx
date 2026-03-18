@@ -4,34 +4,34 @@ import { ArrowRight, Phone, CheckCircle, TrendingUp, FileText, Building2, Award 
 import { FaStar, FaUsers, FaCheckCircle, FaFileInvoiceDollar, FaTrademark, FaBuilding, FaUtensils } from 'react-icons/fa';
 
 const serviceHighlights = [
-  { icon: <Building2 className="w-4 h-4 text-orange-400" />, label: "Company Registration" },
-  { icon: <FileText className="w-4 h-4 text-orange-400" />, label: "GST Compliance" },
-  { icon: <Award className="w-4 h-4 text-orange-400" />, label: "MCA Filing" },
-  { icon: <TrendingUp className="w-4 h-4 text-orange-400" />, label: "Income Tax Filing" },
+  { icon: <Building2 className="w-4 h-4 text-primary-400" />, label: "Company Registration" },
+  { icon: <FileText className="w-4 h-4 text-primary-400" />, label: "GST Compliance" },
+  { icon: <Award className="w-4 h-4 text-primary-400" />, label: "MCA Filing" },
+  { icon: <TrendingUp className="w-4 h-4 text-primary-400" />, label: "Income Tax Filing" },
 ];
 
 function FloatingServiceCards() {
   const cards = [
-    { title: "GST Registration", icon: <FaFileInvoiceDollar className="text-orange-500 text-xl" />, col: "translate-y-0 xl:-translate-y-4 shadow-xl" },
-    { title: "Trademark Filing", icon: <FaTrademark className="text-orange-500 text-xl" />, col: "translate-y-8 xl:translate-y-6 shadow-xl" },
-    { title: "Company Registration", icon: <FaBuilding className="text-orange-500 text-xl" />, col: "translate-y-8 xl:translate-y-6 shadow-xl" },
-    { title: "FSSAI License", icon: <FaUtensils className="text-orange-500 text-xl" />, col: "translate-y-0 xl:-translate-y-4 shadow-xl" }
+    { title: "GST Registration", icon: <FaFileInvoiceDollar className="text-primary-500 text-xl" />, col: "translate-y-0 xl:-translate-y-4 shadow-xl" },
+    { title: "Trademark Filing", icon: <FaTrademark className="text-primary-500 text-xl" />, col: "translate-y-8 xl:translate-y-6 shadow-xl" },
+    { title: "Company Registration", icon: <FaBuilding className="text-primary-500 text-xl" />, col: "translate-y-8 xl:translate-y-6 shadow-xl" },
+    { title: "FSSAI License", icon: <FaUtensils className="text-primary-500 text-xl" />, col: "translate-y-0 xl:-translate-y-4 shadow-xl" }
   ];
 
   return (
     <div className="relative w-full max-w-[500px] mx-auto mt-12 lg:mt-0">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-gradient-to-r from-orange-500/30 to-yellow-500/20 rounded-full blur-[60px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-gradient-to-r from-primary-500/30 to-yellow-500/20 rounded-full blur-[60px] pointer-events-none" />
       
       <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 animate-float" style={{ animationDuration: '4s' }}>
         <div className="flex flex-col gap-4 lg:gap-6">
           <div className={`bg-white rounded-xl px-6 py-5 flex flex-col justify-center items-center sm:items-start text-center sm:text-left gap-3 ${cards[0].col}`}>
-            <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center shadow-inner">
+            <div className="w-12 h-12 rounded-full bg-primary-50 flex items-center justify-center shadow-inner">
               {cards[0].icon}
             </div>
             <p className="text-gray-800 font-bold tracking-tight text-sm/5">{cards[0].title}</p>
           </div>
           <div className={`bg-white rounded-xl px-6 py-5 flex flex-col justify-center items-center sm:items-start text-center sm:text-left gap-3 ${cards[1].col}`}>
-            <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center shadow-inner">
+            <div className="w-12 h-12 rounded-full bg-primary-50 flex items-center justify-center shadow-inner">
               {cards[1].icon}
             </div>
             <p className="text-gray-800 font-bold tracking-tight text-sm/5">{cards[1].title}</p>
@@ -40,13 +40,13 @@ function FloatingServiceCards() {
         
         <div className="flex flex-col gap-4 lg:gap-6 pt-0 sm:pt-6">
           <div className={`bg-white rounded-xl px-6 py-5 flex flex-col justify-center items-center sm:items-start text-center sm:text-left gap-3 ${cards[2].col}`}>
-            <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center shadow-inner">
+            <div className="w-12 h-12 rounded-full bg-primary-50 flex items-center justify-center shadow-inner">
               {cards[2].icon}
             </div>
             <p className="text-gray-800 font-bold tracking-tight text-sm/5">{cards[2].title}</p>
           </div>
           <div className={`bg-white rounded-xl px-6 py-5 flex flex-col justify-center items-center sm:items-start text-center sm:text-left gap-3 ${cards[3].col}`}>
-            <div className="w-12 h-12 rounded-full bg-orange-50 flex items-center justify-center shadow-inner">
+            <div className="w-12 h-12 rounded-full bg-primary-50 flex items-center justify-center shadow-inner">
               {cards[3].icon}
             </div>
             <p className="text-gray-800 font-bold tracking-tight text-sm/5">{cards[3].title}</p>
@@ -67,7 +67,7 @@ export default function HeroSection() {
           backgroundSize: "48px 48px",
         }}
       />
-      <div className="absolute top-0 left-0 w-[480px] h-[480px] bg-orange-600/10 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
+      <div className="absolute top-0 left-0 w-[480px] h-[480px] bg-primary-600/10 rounded-full blur-3xl -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-3xl translate-x-1/4 translate-y-1/4 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-blue-600/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
@@ -76,12 +76,12 @@ export default function HeroSection() {
           <div className="text-white">
             <h1 className="animate-fade-in-up-d1 text-4xl sm:text-4xl xl:text-5xl font-extrabold leading-[1.1] tracking-tight">
               All-in-One {" "}
-              <span className="bg-gradient-to-r from-orange-400 via-amber-400 to-orange-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 via-amber-400 to-primary-300 bg-clip-text text-transparent">
                Corporate
               </span>
               <br />
               Platform{" "}
-              <span className="bg-gradient-to-r from-orange-400 to-amber-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 to-amber-300 bg-clip-text text-transparent">
                for Indian
               </span>{" "}
               Businesses
@@ -90,7 +90,7 @@ export default function HeroSection() {
             <div className="animate-fade-in-up-d2 flex flex-wrap gap-x-6 gap-y-3 mt-7">
               {serviceHighlights.map((s, i) => (
                 <div key={i} className="flex items-center gap-2 text-sm text-gray-300">
-                  <FaCheckCircle className="w-4 h-4 text-orange-400 shrink-0" />
+                  <FaCheckCircle className="w-4 h-4 text-primary-400 shrink-0" />
                   {s.label}
                 </div>
               ))}
@@ -99,7 +99,7 @@ export default function HeroSection() {
             <div className="animate-fade-in-up-d3 flex flex-col sm:flex-row gap-4 mt-9">
               <Link
                 href="/services/private-limited-company"
-                className="animate-pulse-glow inline-flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-semibold text-sm shadow-lg shadow-orange-500/30 transition-all hover:scale-105"
+                className="animate-pulse-glow inline-flex items-center justify-center gap-2 bg-primary-500 hover:bg-primary-600 text-white px-8 py-4 rounded-xl font-semibold text-sm shadow-lg shadow-primary-500/30 transition-all hover:scale-105"
               >
                 Start Your Business
                 <ArrowRight className="w-4 h-4" />
@@ -108,7 +108,7 @@ export default function HeroSection() {
                 href="tel:9643862867"
                 className="inline-flex items-center justify-center gap-2 border border-gray-500 text-white px-8 py-4 rounded-xl font-semibold text-sm hover:bg-gray-800 transition-all"
               >
-                <Phone className="w-4 h-4 text-orange-400" />
+                <Phone className="w-4 h-4 text-primary-400" />
                 Talk to an Expert
               </a>
             </div>
