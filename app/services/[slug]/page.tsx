@@ -49,14 +49,14 @@ export default async function ServicePage({ params }: { params: { slug: string }
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl sm:text-5xl font-extrabold mb-6 leading-tight">{serviceName} Service</h1>
-            <p className="text-xl text-orange-100 mb-8 max-w-xl">
+            <p className="text-xl text-primary-100 mb-8 max-w-xl">
               Get comprehensive, fully-managed assistance for {serviceName}. We handle the complexity so you can focus on building your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a href="#lead-form" className="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-4 px-8 rounded-full text-center transition-colors shadow-lg">
                 Get Started
               </a>
-              <div className="flex items-center text-orange-200 justify-center sm:justify-start mt-4 sm:mt-0">
+              <div className="flex items-center text-primary-200 justify-center sm:justify-start mt-4 sm:mt-0">
                 <CheckCircle2 className="w-5 h-5 mr-2" />
                 <span>100% Online Process</span>
               </div>
@@ -65,8 +65,8 @@ export default async function ServicePage({ params }: { params: { slug: string }
 
           <div className="hidden lg:block">
             {/* Visual element placeholder */}
-            <div className="w-full h-80 bg-orange-800/50 rounded-2xl flex items-center justify-center border border-orange-700">
-              <span className="text-orange-300 text-lg">Illustration / Service Image</span>
+            <div className="w-full h-80 bg-primary-800/50 rounded-2xl flex items-center justify-center border border-primary-700">
+              <span className="text-primary-300 text-lg">Illustration / Service Image</span>
             </div>
           </div>
         </div>

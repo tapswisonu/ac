@@ -12,11 +12,11 @@ export default function CTASection() {
           backgroundSize: "28px 28px",
         }}
       />
-      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-72 h-72 bg-orange-500/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-72 h-72 bg-primary-500/15 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-72 h-72 bg-amber-400/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-4xl mx-auto px-4 sm:px-6 text-center">
-        <div className="inline-flex items-center gap-2 bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-bold px-4 py-1.5 rounded-full mb-6">
+        <div className="inline-flex items-center gap-2 bg-primary-500/10 border border-primary-500/20 text-primary-400 text-xs font-bold px-4 py-1.5 rounded-full mb-6">
           <Zap className="w-3.5 h-3.5" />
           Limited Time Offer — Code: INDT20 · Get 15% Off
         </div>
@@ -29,7 +29,7 @@ export default function CTASection() {
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
             href="/contact"
-            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 text-white px-10 py-4 rounded-xl font-bold text-base shadow-lg shadow-orange-500/30 hover:from-orange-600 hover:to-amber-600 transition-all hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary-500 to-amber-500 text-white px-10 py-4 rounded-xl font-bold text-base shadow-lg shadow-primary-500/30 hover:from-primary-600 hover:to-amber-600 transition-all hover:scale-105"
           >
             Get Free Consultation
             <ArrowRight className="w-5 h-5" />

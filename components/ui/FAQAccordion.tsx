@@ -22,7 +22,7 @@ export default function FAQAccordion({ targetFaqs }: { targetFaqs: { question: s
       {faqs.map((faq, index) => (
         <div 
           key={index} 
-          className={`border rounded-xl transition-all duration-200 ${openIndex === index ? 'border-orange-300 bg-orange-50/30' : 'border-gray-200 bg-white hover:border-gray-300'}`}
+          className={`border rounded-xl transition-all duration-200 ${openIndex === index ? 'border-primary-300 bg-primary-50/30' : 'border-gray-200 bg-white hover:border-gray-300'}`}
         >
           <button 
             onClick={() => toggle(index)}
@@ -30,7 +30,7 @@ export default function FAQAccordion({ targetFaqs }: { targetFaqs: { question: s
           >
             <span className="font-semibold text-gray-900 text-lg pr-8">{faq.question}</span>
             {openIndex === index ? (
-              <ChevronUp className="w-5 h-5 text-orange-500 flex-shrink-0" />
+              <ChevronUp className="w-5 h-5 text-primary-500 flex-shrink-0" />
             ) : (
               <ChevronDown className="w-5 h-5 text-gray-400 flex-shrink-0" />
             )}

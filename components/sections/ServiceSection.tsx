@@ -56,8 +56,8 @@ export default function ServiceSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {ourServices.map((service, idx) => (
-          <div key={idx} className="bg-white rounded-xl shadow-md border border-gray-100 p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-orange-50">
-            <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-orange-100 text-orange-500 shrink-0">
+          <div key={idx} className="bg-white rounded-xl shadow-md border border-gray-100 p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary-50">
+            <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-primary-100 text-primary-500 shrink-0">
               {service.icon}
             </div>
             <h3 className="text-lg font-semibold text-gray-900">
@@ -66,7 +66,7 @@ export default function ServiceSection() {
             <p className="text-gray-500 text-sm leading-relaxed flex-grow">
               {service.description}
             </p>
-            <Link href={service.link} className="mt-4 inline-flex items-center text-orange-500 font-medium hover:text-orange-600 gap-1 w-fit">
+            <Link href={service.link} className="mt-4 inline-flex items-center text-primary-500 font-medium hover:text-primary-600 gap-1 w-fit">
               Learn More <ArrowRight className="w-4 h-4" />
             </Link>
           </div>

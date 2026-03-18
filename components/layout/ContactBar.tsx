@@ -16,7 +16,7 @@ const ContactBar = () => {
         <div className="flex items-center" style={{ gap: "20px" }}>
           <a
             href="tel:9643862867"
-            className="flex items-center gap-2 text-slate-300 hover:text-orange-400 transition-colors duration-200"
+            className="flex items-center gap-2 text-slate-300 hover:text-primary-400 transition-colors duration-200"
           >
             <Phone className="w-3.5 h-3.5 flex-shrink-0" />
             <span className="hidden sm:inline">9643862867</span>
@@ -24,7 +24,7 @@ const ContactBar = () => {
           </a>
           <a
             href="mailto:info@ajaccountinggroup.com"
-            className="flex items-center gap-2 text-slate-300 hover:text-orange-400 transition-colors duration-200"
+            className="flex items-center gap-2 text-slate-300 hover:text-primary-400 transition-colors duration-200"
           >
             <Mail className="w-3.5 h-3.5 flex-shrink-0" />
             <span className="hidden md:inline">info@ajaccountinggroup.com</span>
@@ -43,7 +43,7 @@ const ContactBar = () => {
           </Link>
           <Link
             href="/register"
-            className="bg-orange-500 hover:bg-orange-600 text-white transition-colors duration-200"
+            className="bg-primary-500 hover:bg-primary-600 text-white transition-colors duration-200"
             style={{
               padding: "6px 16px",
               borderRadius: "6px",

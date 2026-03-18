@@ -10,7 +10,7 @@ export default function AboutPage() {
     <div className="bg-slate-50 min-h-screen py-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-4xl font-extrabold text-slate-900 mb-8 text-center font-serif">
-          About <span className="text-orange-500">Aj</span> Accounting-Group
+          About <span className="text-primary-500">Aj</span> Accounting-Group
         </h1>
         
         <div className="bg-white rounded-2xl shadow-sm border border-slate-200 p-8 md:p-12 prose prose-slate max-w-none">
@@ -41,7 +41,7 @@ export default function AboutPage() {
               href="https://www.bing.com/maps/search?q=Office+No+G+16+Ground+Floor+Dharmpali+Palace+Bhoja+Market+Near+Vinayak+Hospital+Sector+27+Noida%2C+Bhoja+Market%2C+Noida%2C+Uttar+Pradesh+201301%2C+IN&cp=28.525282%7E77.397499&lvl=11.1&style=r"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-orange-500 hover:underline"
+              className="text-primary-500 hover:underline"
             >
               Office No G 16 Ground Floor Dharmpali Palace Bhoja Market Near Vinayak Hospital Sector 27 Noida, Bhoja Market, Noida, Uttar Pradesh 201301, IN
             </a>
@@ -51,7 +51,7 @@ export default function AboutPage() {
               href="https://www.bing.com/maps/search?q=Office+No+G+16+Ground+Floor+Dharmpali+Palace+Bhoja+Market+Near+Vinayak+Hospital+Sector+27+Noida%2C+Bhoja+Market%2C+Noida%2C+Uttar+Pradesh+201301%2C+IN&cp=28.525282%7E77.397499&lvl=11.1&style=r"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-orange-600 transition-colors"
+              className="inline-flex items-center gap-2 bg-primary-500 text-white px-4 py-2 rounded-full text-sm font-semibold hover:bg-primary-600 transition-colors"
             >
               🗺️ Get Directions
             </a>

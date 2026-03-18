@@ -55,22 +55,22 @@ export default function LeadForm({ serviceSlug = "general-inquiry", serviceName 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-          <input required type="text" id="name" name="name" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all" placeholder="John Doe" />
+          <input required type="text" id="name" name="name" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all" placeholder="John Doe" />
         </div>
         
         <div>
           <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-          <input required type="email" id="email" name="email" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all" placeholder="john@example.com" />
+          <input required type="email" id="email" name="email" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all" placeholder="john@example.com" />
         </div>
 
         <div>
           <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-          <input required type="tel" id="phone" name="phone" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all" placeholder="+91 98765 43210" />
+          <input required type="tel" id="phone" name="phone" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all" placeholder="+91 98765 43210" />
         </div>
 
         <div>
           <label htmlFor="entityType" className="block text-sm font-medium text-gray-700 mb-1">Business Entity (Optional)</label>
-          <select id="entityType" name="entityType" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-transparent outline-none transition-all bg-white">
+          <select id="entityType" name="entityType" className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all bg-white">
             <option value="">Select Entity Type</option>
             <option value="Private Limited Company">Private Limited Company</option>
             <option value="LLP">LLP</option>
@@ -83,7 +83,7 @@ export default function LeadForm({ serviceSlug = "general-inquiry", serviceName 
         <button 
           disabled={loading}
           type="submit" 
-          className="w-full bg-orange-500 text-white font-bold py-4 rounded-lg hover:bg-orange-600 transition-colors shadow-md disabled:bg-orange-400 disabled:cursor-not-allowed mt-4"
+          className="w-full bg-primary-500 text-white font-bold py-4 rounded-lg hover:bg-primary-600 transition-colors shadow-md disabled:bg-primary-400 disabled:cursor-not-allowed mt-4"
         >
           {loading ? 'Submitting...' : 'Request Consultation'}
         </button>

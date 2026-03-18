@@ -17,14 +17,14 @@ export default function ProcessSection() {
         </div>
 
         <div className="relative">
-          <div className="hidden md:block absolute top-[44px] left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-orange-100 via-orange-300 to-orange-100 z-0"></div>
+          <div className="hidden md:block absolute top-[44px] left-[12.5%] right-[12.5%] h-[2px] bg-gradient-to-r from-primary-100 via-primary-300 to-primary-100 z-0"></div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 relative group">
-              <div className="absolute -top-4 -right-2 bg-orange-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-white z-20 shadow-sm transition-transform group-hover:scale-110">
+              <div className="absolute -top-4 -right-2 bg-primary-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-white z-20 shadow-sm transition-transform group-hover:scale-110">
                 1
               </div>
-              <div className="w-16 h-16 mx-auto bg-orange-50 rounded-full flex items-center justify-center mb-4 text-orange-500 text-3xl group-hover:bg-orange-100 transition-colors">
+              <div className="w-16 h-16 mx-auto bg-primary-50 rounded-full flex items-center justify-center mb-4 text-primary-500 text-3xl group-hover:bg-primary-100 transition-colors">
                 <FaSearch />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Choose Service</h3>
@@ -34,10 +34,10 @@ export default function ProcessSection() {
             </div>
 
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 relative group">
-              <div className="absolute -top-4 -right-2 bg-orange-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-white z-20 shadow-sm transition-transform group-hover:scale-110">
+              <div className="absolute -top-4 -right-2 bg-primary-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-white z-20 shadow-sm transition-transform group-hover:scale-110">
                 2
               </div>
-              <div className="w-16 h-16 mx-auto bg-orange-50 rounded-full flex items-center justify-center mb-4 text-orange-500 text-3xl group-hover:bg-orange-100 transition-colors">
+              <div className="w-16 h-16 mx-auto bg-primary-50 rounded-full flex items-center justify-center mb-4 text-primary-500 text-3xl group-hover:bg-primary-100 transition-colors">
                 <FaFileUpload />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Submit Documents</h3>
@@ -47,10 +47,10 @@ export default function ProcessSection() {
             </div>
 
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 relative group">
-              <div className="absolute -top-4 -right-2 bg-orange-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-white z-20 shadow-sm transition-transform group-hover:scale-110">
+              <div className="absolute -top-4 -right-2 bg-primary-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-white z-20 shadow-sm transition-transform group-hover:scale-110">
                 3
               </div>
-              <div className="w-16 h-16 mx-auto bg-orange-50 rounded-full flex items-center justify-center mb-4 text-orange-500 text-3xl group-hover:bg-orange-100 transition-colors">
+              <div className="w-16 h-16 mx-auto bg-primary-50 rounded-full flex items-center justify-center mb-4 text-primary-500 text-3xl group-hover:bg-primary-100 transition-colors">
                 <FaUserCheck />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Expert Filing</h3>
@@ -60,10 +60,10 @@ export default function ProcessSection() {
             </div>
 
             <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 text-center hover:shadow-xl hover:-translate-y-1 transition duration-300 relative group">
-              <div className="absolute -top-4 -right-2 bg-orange-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-white z-20 shadow-sm transition-transform group-hover:scale-110">
+              <div className="absolute -top-4 -right-2 bg-primary-500 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-white z-20 shadow-sm transition-transform group-hover:scale-110">
                 4
               </div>
-              <div className="w-16 h-16 mx-auto bg-orange-50 rounded-full flex items-center justify-center mb-4 text-orange-500 text-3xl group-hover:bg-orange-100 transition-colors">
+              <div className="w-16 h-16 mx-auto bg-primary-50 rounded-full flex items-center justify-center mb-4 text-primary-500 text-3xl group-hover:bg-primary-100 transition-colors">
                 <FaCertificate />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Get Certificate</h3>
@@ -76,7 +76,7 @@ export default function ProcessSection() {
         
         <div className="mt-16 text-center">
           <p className="text-gray-600 font-medium mb-4 text-lg">Ready to start your business?</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg shadow-orange-500/30 transition-all hover:scale-105">
+          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-600 text-white font-semibold px-8 py-3.5 rounded-xl shadow-lg shadow-primary-500/30 transition-all hover:scale-105">
             Get Free Consultation
             <ArrowRight className="w-4 h-4" />
           </Link>
