@@ -13,7 +13,7 @@ const Content = () => (
     <span className="text-white/40">•</span>
 
     <span className="inline-flex items-center gap-2 px-6">
-      <FaGift className="text-yellow-200" />
+      <FaGift className="text-orange-200" />
       <span>Get 15% Off</span>
     </span>
 
@@ -36,7 +36,7 @@ const Content = () => (
     <span className="text-white/40">•</span>
 
     <span className="inline-flex items-center gap-2 px-6">
-      <FaStar className="text-yellow-100" />
+      <FaStar className="text-orange-100" />
       <span>Premium Accounting Services</span>
     </span>
 
@@ -53,7 +53,7 @@ export default function AnnouncementBar() {
       aria-label="Promotional announcement"
     >
       {/* Gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-orange-500 to-yellow-400" />
+      <div className="absolute inset-0 bg-gradient-to-r from-orange-600 via-orange-500 to-orange-400" />
 
       {/* Shimmer sweep */}
       <div

@@ -20,7 +20,7 @@ function FloatingServiceCards() {
 
   return (
     <div className="relative w-full max-w-[500px] mx-auto mt-12 lg:mt-0">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-gradient-to-r from-primary-500/30 to-yellow-500/20 rounded-full blur-[60px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] h-[350px] bg-gradient-to-r from-primary-500/30 to-orange-500/20 rounded-full blur-[60px] pointer-events-none" />
       
       <div className="relative grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6 animate-float" style={{ animationDuration: '4s' }}>
         <div className="flex flex-col gap-4 lg:gap-6">
@@ -76,12 +76,12 @@ export default function HeroSection() {
           <div className="text-white">
             <h1 className="animate-fade-in-up-d1 text-4xl sm:text-4xl xl:text-5xl font-extrabold leading-[1.1] tracking-tight">
               All-in-One {" "}
-              <span className="bg-gradient-to-r from-primary-400 via-amber-400 to-primary-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 via-orange-400 to-primary-300 bg-clip-text text-transparent">
                Corporate
               </span>
               <br />
               Platform{" "}
-              <span className="bg-gradient-to-r from-primary-400 to-amber-300 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-primary-400 to-orange-300 bg-clip-text text-transparent">
                for Indian
               </span>{" "}
               Businesses
@@ -117,7 +117,7 @@ export default function HeroSection() {
               <div className="flex items-center gap-2">
                 <div className="flex">
                   {[...Array(5)].map((_, i) => (
-                    <FaStar key={i} className="w-4 h-4 text-amber-400" />
+                    <FaStar key={i} className="w-4 h-4 text-orange-400" />
                   ))}
                 </div>
               </div>

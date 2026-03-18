@@ -20,13 +20,14 @@ export default function FAQSection() {
   }
 
   return (
-    <section className="bg-slate-50 py-20 px-6">
+    <section className="bg-slate-100 py-20 px-6">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-primary mb-4">
-            Frequently Asked Questions
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
+          Frequently Asked Questions
           </h2>
-          <p className="text-gray-600">
+          
+          <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
             Everything you need to know about our services and compliance process.
           </p>
         </div>
@@ -35,22 +36,22 @@ export default function FAQSection() {
           {faqs.map((faq, index) => {
              const isOpen = openIndex === index;
              return (
-               <div 
-                 key={index}
-                 className={`bg-white rounded-xl shadow-md border ${isOpen ? 'border-primary bg-blue-50' : 'border-gray-200'} p-5 mb-4 hover:shadow-lg hover:border-secondary transition-all duration-300`}
-               >
+                 <div 
+                   key={index}
+                   className={`bg-slate-800 rounded-xl shadow-md border ${isOpen ? 'border-primary-500 bg-slate-700' : 'border-slate-700'} p-5 mb-4 hover:shadow-lg hover:border-secondary-500 transition-all duration-300`}
+                 >
                  <button
                    onClick={() => toggle(index)}
                    className="w-full flex justify-between items-center cursor-pointer focus:outline-none"
                  >
-                   <span className="font-semibold text-primary text-left text-lg">{faq.question}</span>
-                   <ChevronDown className={`w-5 h-5 text-primary transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
+                   <span className="font-semibold text-white text-left text-lg">{faq.question}</span>
+                   <ChevronDown className={`w-5 h-5 text-primary-400 transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180' : ''}`} />
                  </button>
                  
                  <div
                    className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[200px] opacity-100 mt-3' : 'max-h-0 opacity-0 mt-0'}`}
                  >
-                   <p className="text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
+                   <p className="text-slate-300 leading-relaxed border-t border-slate-600 pt-3">
                      {faq.answer}
                    </p>
                  </div>
@@ -59,8 +60,8 @@ export default function FAQSection() {
           })}
         </div>
         
-        <div className="text-center mt-12 p-8 bg-white rounded-2xl shadow-sm border border-gray-100">
-          <p className="text-gray-700 mb-6 font-medium text-lg">
+        <div className="text-center mt-12 p-8 bg-slate-800 rounded-2xl shadow-sm border border-slate-700">
+          <p className="text-slate-300 mb-6 font-medium text-lg">
             Still have questions? Talk to our expert today.
           </p>
           <Link

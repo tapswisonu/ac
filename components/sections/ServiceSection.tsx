@@ -44,33 +44,35 @@ const ourServices = [
 
 export default function ServiceSection() {
   return (
-    <section id="services" className="max-w-7xl mx-auto px-6 py-20 relative z-10 bg-white">
-      <div className="mt-16 mb-10 text-center">
-        <h2 className="text-3xl font-bold text-gray-900">
-          Our Services
-        </h2>
-        <p className="text-gray-500 max-w-2xl mx-auto mt-4">
-          Comprehensive business, tax, and compliance services to help you start and grow your business smoothly.
-        </p>
-      </div>
+    <section id="services" className="px-6 py-24 relative z-10 bg-white">
+      <div className="max-w-7xl mx-auto">
+        <div className="mb-16 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+            Our Services
+          </h2>
+          <p className="text-slate-600 max-w-2xl mx-auto mt-4 text-lg">
+            Comprehensive business, tax, and compliance services to help you start and grow your business smoothly.
+          </p>
+        </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {ourServices.map((service, idx) => (
-          <div key={idx} className="bg-white rounded-xl shadow-md border border-gray-100 p-6 flex flex-col gap-4 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:bg-primary-50">
-            <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-primary-100 text-primary-500 shrink-0">
-              {service.icon}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+          {ourServices.map((service, idx) => (
+            <div key={idx} className="group bg-white rounded-2xl shadow-sm border border-slate-100 p-8 flex flex-col gap-4 transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/5 hover:-translate-y-1 hover:border-primary-100">
+              <div className="w-14 h-14 flex items-center justify-center rounded-2xl bg-primary-50 text-primary-600 shrink-0 group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300">
+                {service.icon}
+              </div>
+              <h3 className="text-xl font-bold text-slate-900 mt-2">
+                {service.title}
+              </h3>
+              <p className="text-slate-600 text-sm md:text-base leading-relaxed flex-grow">
+                {service.description}
+              </p>
+              <Link href={service.link} className="mt-2 inline-flex items-center text-primary-600 font-semibold hover:text-primary-700 gap-1 w-fit group-hover:gap-2 transition-all">
+                Learn More <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
-            <h3 className="text-lg font-semibold text-gray-900">
-              {service.title}
-            </h3>
-            <p className="text-gray-500 text-sm leading-relaxed flex-grow">
-              {service.description}
-            </p>
-            <Link href={service.link} className="mt-4 inline-flex items-center text-primary-500 font-medium hover:text-primary-600 gap-1 w-fit">
-              Learn More <ArrowRight className="w-4 h-4" />
-            </Link>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -37,9 +37,9 @@ export default function LeadForm({ serviceSlug = "general-inquiry", serviceName 
 
   if (success) {
     return (
-      <div className="bg-yellow-50 p-8 rounded-2xl border border-yellow-200 text-center">
-        <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+      <div className="bg-orange-50 p-8 rounded-2xl border border-orange-200 text-center">
+        <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+          <svg className="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
         </div>
         <h3 className="text-xl font-bold text-gray-900 mb-2">Request Received!</h3>
         <p className="text-gray-600">Our legal expert will contact you shortly to discuss {serviceName}.</p>

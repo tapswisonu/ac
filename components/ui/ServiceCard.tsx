@@ -27,7 +27,7 @@ export default function ServiceCard({ title, slug, description, features = [] }:
           <ul className="mb-6 space-y-2">
             {features.slice(0, 3).map((feature, idx) => (
               <li key={idx} className="flex items-start text-sm text-gray-600">
-                <CheckCircle2 className="w-4 h-4 text-yellow-600 mr-2 mt-0.5 flex-shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-orange-600 mr-2 mt-0.5 flex-shrink-0" />
                 <span>{feature}</span>
               </li>
             ))}
