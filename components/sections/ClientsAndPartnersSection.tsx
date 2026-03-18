@@ -40,11 +40,13 @@ export default function ClientsAndPartnersSection() {
   return (
     <section className="py-24 bg-slate-50 overflow-hidden border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center">
-        <h2 className="text-sm font-semibold text-secondary-500 uppercase tracking-wider mb-3">Our Network</h2>
-        <h3 className="text-3xl md:text-4xl font-bold text-slate-900 tracking-tight">
+        <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-secondary-50 border border-secondary-100 shadow-sm mb-4">
+          <span className="text-sm font-semibold text-secondary-600 uppercase tracking-wider">Our Network</span>
+        </div>
+        <h3 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
           Trusted by Clients & Partners
         </h3>
-        <p className="mt-4 text-slate-600 max-w-2xl mx-auto text-lg hover:text-slate-800 transition-colors">
+        <p className="mt-4 text-slate-600 max-w-2xl mx-auto text-lg leading-relaxed">
           Join thousands of businesses and premium partners who rely on our platform for seamless corporate compliance.
         </p>
       </div>

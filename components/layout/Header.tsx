@@ -565,7 +565,7 @@ export default function Header() {
   return (
     <header className="fixed w-full top-[88px] bg-white z-40 border-b border-gray-200 shadow-sm">
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center h-15">
 
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -613,16 +613,7 @@ export default function Header() {
             })}
           </nav>
 
-          {/* CTA (desktop) */}
-          <div className="hidden lg:flex items-center gap-2">
-            {/* CTA */}
-            <Link
-              href="/contact"
-              className="hidden 2xl:flex items-center gap-1.5 bg-gradient-to-r from-primary-500 to-orange-500 text-white px-4 py-1.5 rounded-full font-semibold text-[13px] hover:from-primary-600 hover:to-orange-600 transition-all shadow-sm"
-            >
-              Free Consultation
-            </Link>
-          </div>
+          
 
 
           {/* Mobile: hamburger */}
@@ -672,7 +663,7 @@ export default function Header() {
             ))}
 
             <div className="p-4">
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="block w-full text-center bg-gradient-to-r from-primary-500 to-orange-500 text-white py-3 rounded-full font-semibold text-sm">
+              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center bg-primary-600 text-white py-3 rounded-lg font-semibold text-sm hover:bg-primary-700 transition-all duration-300">
                 Free Consultation
               </Link>
             </div>
