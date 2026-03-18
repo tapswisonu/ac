@@ -11,12 +11,13 @@ export default function ContactForm() {
     setLoading(true);
 
     const formData = new FormData(e.currentTarget);
-    const data = {
+    const _data = {
       name: formData.get('name'),
       phone: formData.get('phone'),
       service: formData.get('service'),
       message: formData.get('message'),
     };
+    void _data; // ready for API integration
 
     // Simulate API call
     setTimeout(() => {
@@ -43,7 +44,7 @@ export default function ContactForm() {
     <div className="bg-white p-8 sm:p-10 rounded-3xl shadow-2xl border border-gray-100">
       <div className="mb-8">
         <h2 className="text-3xl font-bold text-gray-900 mb-2">Book a Free Consultation</h2>
-        <p className="text-gray-500">Tell us what you need help with, and we'll get back to you within 2 hours.</p>
+        <p className="text-gray-500">Tell us what you need help with, and we&apos;ll get back to you within 2 hours.</p>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5">
