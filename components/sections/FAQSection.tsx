@@ -1,106 +1,147 @@
-"use client";
-
-import React, { useState } from 'react';
-import { ChevronDown, MessageCircleQuestion } from 'lucide-react';
+import React from 'react';
 import Link from 'next/link';
+import { HelpCircle, ArrowRight, ShieldCheck } from 'lucide-react';
+import { FAQItem, type FAQEntry } from './FAQItem';
 
-const faqs = [
-  { question: "How long does company registration take?", answer: "The typical company registration process takes around 10 to 15 working days, subject to government processing times and document readiness. Our automated systems ensure zero delays on our end." },
-  { question: "Are there any hidden charges?", answer: "Absolutely not. We believe in 100% transparent pricing. The fees quoted to you cover professional services, government fees, and all applicable taxes with no surprises later." },
-  { question: "Is my data secure with you?", answer: "Yes. We use bank-grade 256-bit encryption for all document uploads and communications. Your sensitive business data is never shared with unauthorized third parties." },
-  { question: "Do you provide pan-India services?", answer: "Yes, our services are entirely digital and available to businesses across all states and union territories in India." },
-  { question: "Do you help with post-registration compliance?", answer: "Yes, we are a full-stack platform. Once your business is registered, we handle your annual compliance, GST filings, and bookkeeping." }
+const faqs: FAQEntry[] = [
+  {
+    id: 'faq-1',
+    question: 'What is ROC compliance and why is it mandatory for companies in India?',
+    answer:
+      'ROC (Registrar of Companies) compliance refers to the annual filing obligations under the Companies Act, 2013 — including AOC-4 (financial statements), MGT-7 (annual return), and director KYC (DIR-3). All registered private limited companies must file these on time to avoid MCA penalties of ₹100 per day per form.',
+    tags: ['ROC Filing', 'MCA Compliance', 'Companies Act'],
+  },
+  {
+    id: 'faq-2',
+    question: 'What are the penalties for late GST return filing in India?',
+    answer:
+      'Late GST return filing attracts a late fee of ₹50 per day (₹20 per day for Nil returns) under CGST + SGST, capped at ₹10,000 per return. Additionally, unpaid GST attracts 18% annual interest. Timely GSTR-1, GSTR-3B, and annual GSTR-9 filing is essential for all GST-registered businesses.',
+    tags: ['GST Penalty', 'GSTR Filing', 'Late Fees'],
+  },
+  {
+    id: 'faq-3',
+    question: 'How long does it take to register a Private Limited Company in India?',
+    answer:
+      'Private Limited Company incorporation typically takes 7–10 working days with the Ministry of Corporate Affairs (MCA). This includes DSC issuance, DIN approval, name reservation (SPICe+ Part A), and final certificate of incorporation. Our experts ensure a smooth, penalty-free registration with all filings completed on time.',
+    tags: ['Company Registration', 'Pvt Ltd', 'MCA Filing'],
+  },
+  {
+    id: 'faq-4',
+    question: 'Can I get GST registration for my startup or new business in India?',
+    answer:
+      'Yes. Any business with annual turnover exceeding ₹40 lakh (goods) or ₹20 lakh (services) must register under GST. Startups and e-commerce sellers must register regardless of turnover. We help obtain GSTIN within 3–5 working days with minimal documentation — PAN, Aadhaar, bank details, and business address proof.',
+    tags: ['GST Registration', 'Startup Compliance', 'GSTIN'],
+  },
+  {
+    id: 'faq-5',
+    question: 'What documents are required for annual ROC compliance filing?',
+    answer:
+      "Annual ROC compliance requires audited financial statements, Board and shareholder resolutions, director details, and the company's annual return (MGT-7). You also need DIN KYC confirmations for all directors. Our compliance team collects and prepares all documents, ensuring accurate and timely MCA filing without penalties.",
+    tags: ['ROC Documents', 'Annual Filing', 'AOC-4'],
+  },
+  {
+    id: 'faq-6',
+    question: 'What happens if a company misses its annual compliance deadlines?',
+    answer:
+      'Missing annual compliance deadlines attracts MCA penalties starting at ₹100/day per form. Persistent non-compliance can lead to DIN deactivation, director disqualification, and company strike-off under Section 248. The penalties compound quickly — early filing is always recommended to protect your business and directors.',
+    tags: ['Non-Compliance Penalty', 'Director Disqualification', 'Strike-Off'],
+  },
+  {
+    id: 'faq-7',
+    question: 'Do small businesses and LLPs need to file income tax returns in India?',
+    answer:
+      'Yes. All LLPs, companies, and businesses with income above the basic exemption limit must file annual income tax returns. LLPs file ITR-5 and companies file ITR-6. Filing is mandatory even for Nil income. The due date is typically 31st October for audit cases and 31st July for non-audit businesses.',
+    tags: ['Income Tax Return', 'LLP Filing', 'ITR Deadline'],
+  },
+  {
+    id: 'faq-8',
+    question: 'How much do corporate compliance services cost in India?',
+    answer:
+      'Corporate compliance service costs vary by type. Basic annual ROC compliance starts from ₹4,999, GST return filing from ₹999/month, and company registration from ₹6,999 all-inclusive. AJ Accounting Group offers transparent, fixed-fee packages with no hidden charges — contact us for a free consultation and custom quote.',
+    tags: ['Compliance Cost', 'Pricing', 'ROC Fees'],
+  },
 ];
 
 export default function FAQSection() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
-
-  const toggle = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  }
-
   return (
-    <section className="bg-white py-24 px-6 border-t border-slate-200">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-slate-50 border border-slate-200 shadow-sm mb-4">
-            <MessageCircleQuestion className="w-4 h-4 text-slate-600 mr-2" />
-            <span className="text-sm font-semibold text-slate-600 uppercase tracking-wider">Got Questions?</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-900">
-            Frequently Asked Questions
-          </h2>
-          
-          <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mt-4">
-            Everything you need to know about our secure platform, pricing, and compliance process.
-          </p>
-        </div>
-
-        <div className="space-y-4 mb-16">
-          {faqs.map((faq, index) => {
-             const isOpen = openIndex === index;
-             return (
-                 <div 
-                   key={index}
-                   className={`bg-white rounded-2xl shadow-sm border ${isOpen ? 'border-primary-300 ring-2 ring-primary-50' : 'border-slate-200'} p-6 transition-all duration-300 hover:border-primary-300`}
-                 >
-                 <button
-                   onClick={() => toggle(index)}
-                   className="w-full flex justify-between items-center cursor-pointer focus:outline-none"
-                 >
-                   <span className={`font-bold text-left text-lg transition-colors ${isOpen ? 'text-primary-700' : 'text-slate-900 group-hover:text-primary-600'}`}>{faq.question}</span>
-                   <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? 'bg-primary-50' : 'bg-slate-50'}`}>
-                     <ChevronDown className={`w-5 h-5 transition-transform duration-300 flex-shrink-0 ${isOpen ? 'rotate-180 text-primary-600' : 'text-slate-400'}`} />
-                   </div>
-                 </button>
-                 
-                 <div
-                   className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-[200px] opacity-100 mt-4' : 'max-h-0 opacity-0 mt-0'}`}
-                 >
-                   <p className="text-slate-600 leading-relaxed pt-2">
-                     {faq.answer}
-                   </p>
-                 </div>
-               </div>
-             )
-          })}
-        </div>
-        
-        <div className="text-center mt-12 p-10 bg-gradient-to-br from-primary-50 to-white rounded-3xl shadow-sm border border-primary-100 relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-          <div className="relative z-10">
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">Still have questions?</h3>
-            <p className="text-slate-600 mb-8 max-w-lg mx-auto">
-              Our compliance experts are standing by to provide you with personalized advice for your business.
-            </p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center bg-primary-600 text-white px-8 py-4 rounded-xl hover:bg-primary-700 transition-all font-semibold shadow-lg shadow-primary-600/20 hover:-translate-y-0.5 duration-200"
-            >
-              Get a Free Consultation
-            </Link>
-          </div>
-        </div>
-      </div>
-      
-      {/* Schema Markup for SEO */}
+    <section id="faq" className="bg-white py-24 border-t border-slate-100">
+      {/* JSON-LD FAQ Schema for Google rich results */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
-              "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": {
-                "@type": "Answer",
-                "text": faq.answer
-              }
-            }))
-          })
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: faqs.map((f) => ({
+              '@type': 'Question',
+              name: f.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: f.answer,
+              },
+            })),
+          }),
         }}
       />
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+
+        {/* ── Section Header ── */}
+        <div className="text-center mb-14">
+          <div className="inline-flex items-center gap-2 bg-[#1E4E8C]/6 border border-[#1E4E8C]/15 rounded-full px-4 py-1.5 mb-5">
+            <HelpCircle className="w-3.5 h-3.5 text-[#1E4E8C]" />
+            <span className="text-[11px] font-bold text-[#1E4E8C] uppercase tracking-widest">
+              Got Questions?
+            </span>
+          </div>
+          {/* SEO H2 */}
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#1E4E8C] tracking-tight leading-[1.15] mb-4">
+            Frequently Asked Questions
+            <br className="hidden sm:block" />{' '}
+            <span className="text-[#4CAF50]">on Compliance Services</span>
+          </h2>
+          <p className="text-slate-500 text-[16px] leading-relaxed max-w-xl mx-auto">
+            Clear answers on GST filing, ROC compliance, company registration,
+            income tax returns, and penalty rules in India.
+          </p>
+        </div>
+
+        {/* ── FAQ Accordion ── */}
+        <div className="space-y-3" itemScope itemType="https://schema.org/FAQPage">
+          {faqs.map((faq, idx) => (
+            <FAQItem key={faq.id} faq={faq} defaultOpen={idx === 0} />
+          ))}
+        </div>
+
+        {/* ── Bottom CTA ── */}
+        <div className="mt-14 bg-[#1E4E8C] rounded-2xl p-8 sm:p-10 text-center relative overflow-hidden">
+          <div
+            className="absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage:
+                'repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%)',
+              backgroundSize: '18px 18px',
+            }}
+          />
+          <div className="relative z-10">
+            <ShieldCheck className="w-8 h-8 text-[#4CAF50] mx-auto mb-3" />
+            <h3 className="text-2xl font-bold text-white mb-2 tracking-tight">
+              Still have questions?
+            </h3>
+            <p className="text-white/65 text-[15px] mb-7 max-w-lg mx-auto leading-relaxed">
+              Our compliance experts are available Mon–Sat, 9 AM–7 PM. Get personalised advice
+              from a qualified CA or CS — free of charge.
+            </p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 bg-[#4CAF50] hover:bg-[#43A047] text-white font-bold px-9 py-4 rounded-xl shadow-lg shadow-[#4CAF50]/25 hover:shadow-[#4CAF50]/35 transition-all hover:-translate-y-0.5 group/btn"
+            >
+              Get a Free Consultation
+              <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-0.5 transition-transform" />
+            </Link>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

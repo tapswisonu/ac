@@ -5,7 +5,7 @@ import { Phone, Mail } from "lucide-react";
 const ContactBar = () => {
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-50 bg-[#0f172a] text-white"
+      className="w-full bg-[#0f172a] text-white"
       style={{ borderBottom: "1px solid rgba(255,255,255,0.08)" }}
     >
       <div

@@ -1,138 +1,249 @@
-import React from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { ArrowRight, Phone, CheckCircle, TrendingUp, FileText, Building2, Award, ShieldCheck } from 'lucide-react';
-import { FaStar, FaBuilding, FaUtensils, FaFileInvoiceDollar, FaTrademark } from 'react-icons/fa';
+'use client';
 
-const serviceHighlights = [
-  { icon: <Building2 className="w-4 h-4 text-accent-400 shrink-0" />, label: "Company Registration" },
-  { icon: <FileText className="w-4 h-4 text-accent-400 shrink-0" />, label: "GST Compliance" },
-  { icon: <Award className="w-4 h-4 text-accent-400 shrink-0" />, label: "Licenses" },
-  { icon: <TrendingUp className="w-4 h-4 text-accent-400 shrink-0" />, label: "Income Tax Filing" },
+import React, { useState } from 'react';
+import { ArrowRight, ShieldCheck, Clock, Users, CheckCircle2, Lock, Phone, Star } from 'lucide-react';
+
+const trustBadges = [
+  { icon: Users, value: '1,000+', label: 'Companies Served' },
+  { icon: ShieldCheck, value: 'Expert', label: 'CA & CS Support' },
+  { icon: Clock, value: '15 Min', label: 'Response Time' },
+  { icon: Star, value: '4.9/5', label: 'Client Rating' },
 ];
 
-function FloatingServiceCards() {
-  const cards = [
-    { title: "GST Registration", icon: <FaFileInvoiceDollar className="text-secondary-500 text-xl" />, col: "lg:-translate-y-4" },
-    { title: "Trademark Filing", icon: <FaTrademark className="text-primary-500 text-xl" />, col: "lg:translate-y-4" },
-    { title: "Company Setup", icon: <FaBuilding className="text-primary-500 text-xl" />, col: "lg:-translate-y-4" },
-    { title: "FSSAI License", icon: <FaUtensils className="text-secondary-500 text-xl" />, col: "lg:translate-y-4" }
-  ];
-
-  return (
-    <div className="relative w-full max-w-md mx-auto lg:ml-auto lg:mr-0 mt-8 lg:mt-0">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] bg-primary-600/20 rounded-full blur-[80px] pointer-events-none" />
-      
-      <div className="relative grid grid-cols-2 gap-4 lg:gap-5 animate-float" style={{ animationDuration: '6s' }}>
-        {cards.map((card, idx) => (
-          <div 
-            key={idx} 
-            className={`bg-white rounded-2xl p-5 flex flex-col justify-center items-center text-center gap-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-slate-100/50 transition-transform duration-500 hover:-translate-y-1 ${card.col}`}
-          >
-            <div className="w-12 h-12 rounded-xl bg-slate-50 border border-slate-100 flex items-center justify-center shadow-sm">
-              {card.icon}
-            </div>
-            <p className="text-slate-900 font-bold tracking-tight text-sm leading-tight">{card.title}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
+const services = [
+  'ROC / MCA Filing',
+  'GST Registration & Returns',
+  'Company Incorporation',
+  'Trademark & IP',
+  'Income Tax Filing',
+  'FSSAI License',
+];
 
 export default function HeroSection() {
+  const [formData, setFormData] = useState({ name: '', phone: '', service: '' });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 3000);
+  };
+
   return (
-    <section className="relative overflow-hidden bg-slate-950 flex flex-col justify-center min-h-[calc(100vh-90px)] border-b border-primary-900/30">
-      {/* Background patterns and glowing orbs */}
+    <section
+      className="relative bg-[#1E4E8C] overflow-hidden"
+      aria-label="Corporate Compliance Services Hero"
+    >
+      {/* Subtle diagonal pattern overlay */}
       <div
-        className="absolute inset-0 opacity-[0.02]"
+        className="absolute inset-0 opacity-[0.035]"
         style={{
-          backgroundImage: "linear-gradient(rgba(255,255,255,0.8) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.8) 1px, transparent 1px)",
-          backgroundSize: "48px 48px",
+          backgroundImage:
+            'repeating-linear-gradient(45deg, #fff 0, #fff 1px, transparent 0, transparent 50%)',
+          backgroundSize: '20px 20px',
         }}
       />
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-primary-600/20 rounded-full blur-[100px] -translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-secondary-500/10 rounded-full blur-[100px] translate-x-1/4 translate-y-1/4 pointer-events-none" />
 
-      <div className="relative w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-4 flex-grow flex items-center">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-10 items-center">
-          
-          {/* Text Content */}
-          <div className="text-white flex flex-col justify-center w-full max-w-2xl lg:pr-8">
-            <h1 className="animate-fade-in-up-d1 text-4xl sm:text-5xl lg:text-[52px] font-extrabold leading-[1.12] tracking-tight text-white mb-5">
-              India&apos;s Most Trusted <br className="hidden sm:block" />
-              <span className="text-primary-400">
-               Corporate Compliance
+      {/* Ambient depth glows */}
+      <div className="absolute -top-32 -left-48 w-[520px] h-[520px] bg-[#112a50] rounded-full blur-[140px] opacity-60 pointer-events-none" />
+      <div className="absolute -bottom-32 -right-48 w-[460px] h-[460px] bg-[#163665] rounded-full blur-[130px] opacity-50 pointer-events-none" />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-20 lg:pt-32 lg:pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20 items-start">
+
+          {/* ──────────────────────────────────────
+              LEFT: SEO Content + Trust Signals
+          ────────────────────────────────────── */}
+          <div className="text-white">
+
+            {/* Keyword pill */}
+            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-7 animate-fade-in-up-d1">
+              <span className="w-2 h-2 rounded-full bg-[#4CAF50] animate-pulse" />
+              <span className="text-xs font-semibold text-white/90 uppercase tracking-widest">
+                ISO 9001:2015 Certified · Pan-India Services
               </span>
-              <br />
-              Platform
+            </div>
+
+            {/* =========== SEO H1 =========== */}
+            <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold leading-[1.12] tracking-tight text-white mb-5 animate-fade-in-up-d1">
+              Corporate{' '}
+              <span className="text-[#4CAF50]">Compliance</span>
+              <br className="hidden sm:block" />
+              {' '}Services in India
             </h1>
-            
-            <p className="animate-fade-in-up-d2 text-base sm:text-lg text-slate-400 leading-relaxed max-w-lg mb-6">
-              Expert-led support, fast turnaround, secure processing, and transparent pricing. Focus on your business while we handle the legalities.
+
+            {/* Subheading with keywords */}
+            <p className="text-[17px] sm:text-lg text-white/80 leading-relaxed max-w-lg mb-6 animate-fade-in-up-d2">
+              End-to-end compliance management — <strong className="text-white font-semibold">ROC / MCA filing</strong>,{' '}
+              <strong className="text-white font-semibold">GST registration &amp; returns</strong>, company incorporation, and{' '}
+              <strong className="text-white font-semibold">legal compliance</strong> — handled by expert CAs and CSs.
             </p>
 
-            <div className="animate-fade-in-up-d2 flex flex-wrap gap-x-3 gap-y-2 mb-8">
-              {serviceHighlights.map((s, i) => (
-                <div key={i} className="flex items-center gap-1.5 text-xs sm:text-sm text-slate-300 font-medium bg-slate-900/80 px-3 py-1.5 rounded-full border border-slate-800 shadow-sm backdrop-blur-sm">
-                  {s.icon}
-                  {s.label}
+            {/* SEO keyword paragraph (hidden visually but crawlable) */}
+            <p className="text-sm text-white/55 leading-relaxed max-w-lg mb-8 animate-fade-in-up-d2">
+              AJ Accounting Group offers comprehensive corporate compliance services across India including
+              Private Limited company registration, LLP formation, GST filing, ROC annual compliance,
+              trademark registration, FSSAI license, income tax return filing, and MCA secretarial services
+              for startups, SMEs, and large enterprises nationwide.
+            </p>
+
+            {/* Service Tags */}
+            <div className="flex flex-wrap gap-2 mb-10 animate-fade-in-up-d2">
+              {services.map((s) => (
+                <span
+                  key={s}
+                  className="px-3.5 py-1.5 bg-white/10 hover:bg-white/15 border border-white/15 rounded-full text-xs font-semibold text-white/85 transition-colors cursor-default"
+                >
+                  {s}
+                </span>
+              ))}
+            </div>
+
+            {/* ── Trust Badges Grid ── */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 animate-fade-in-up-d3">
+              {trustBadges.map((badge) => (
+                <div
+                  key={badge.label}
+                  className="flex flex-col items-center text-center bg-white/[0.07] border border-white/15 rounded-2xl px-3 py-4 hover:bg-white/10 transition-colors"
+                >
+                  <badge.icon className="w-5 h-5 text-[#4CAF50] mb-2" />
+                  <span className="text-lg font-extrabold text-white leading-none">{badge.value}</span>
+                  <span className="text-[11px] font-medium text-white/55 mt-1 leading-tight">{badge.label}</span>
                 </div>
               ))}
             </div>
 
-            <div className="animate-fade-in-up-d3 flex flex-col sm:flex-row gap-4 mb-8">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center gap-2 bg-primary-600 hover:bg-primary-500 text-white px-8 py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-primary-600/20 transition-all hover:shadow-primary-600/40 hover:-translate-y-0.5 whitespace-nowrap"
-              >
-                Get a Free Consultation
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <a
-                href="tel:9643862867"
-                className="inline-flex items-center justify-center gap-2 border border-slate-700 bg-slate-900/80 hover:bg-slate-800 text-white px-8 py-3.5 rounded-xl font-bold text-sm transition-all whitespace-nowrap backdrop-blur-sm"
-              >
-                <Phone className="w-4 h-4 text-slate-400" />
-                Talk to an Expert
-              </a>
+            {/* Phone CTA strip */}
+            <div className="flex items-center gap-3 mt-8 animate-fade-in-up-d3">
+              <div className="w-10 h-10 rounded-full bg-[#4CAF50]/20 border border-[#4CAF50]/40 flex items-center justify-center shrink-0">
+                <Phone className="w-4 h-4 text-[#4CAF50]" />
+              </div>
+              <div>
+                <p className="text-[11px] text-white/50 uppercase tracking-widest font-semibold">Call us directly</p>
+                <a href="tel:+919643862867" className="text-white font-bold text-[15px] hover:text-[#4CAF50] transition-colors">
+                  +91 9643 862 867
+                </a>
+              </div>
             </div>
+          </div>
 
-            {/* Hyper-Compact Trust Proof */}
-            <div className="animate-fade-in-up-d4 flex flex-wrap items-center gap-5 bg-slate-900/40 p-3.5 sm:px-5 sm:py-3.5 rounded-2xl border border-slate-800/60 w-fit backdrop-blur-sm">
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-2">
-                  {[1, 2, 3].map((i) => (
-                    <Image key={i} className="w-8 h-8 rounded-full border-2 border-slate-950" src={`https://i.pravatar.cc/100?img=${i + 15}`} alt={`User ${i}`} width={32} height={32} />
-                  ))}
-                </div>
-                <div>
-                  <div className="flex gap-0.5">
-                    {[...Array(5)].map((_, i) => (
-                      <FaStar key={i} className="w-3.5 h-3.5 text-secondary-500" />
-                    ))}
+          {/* ──────────────────────────────────────
+              RIGHT: Lead Capture Form
+          ────────────────────────────────────── */}
+          <div className="animate-fade-in-up-d3 lg:pt-4">
+            {/* Glow behind card */}
+            <div className="absolute hidden lg:block top-1/2 right-4 xl:right-16 -translate-y-1/2 w-[420px] h-[480px] bg-[#112a50] blur-[90px] opacity-40 rounded-full pointer-events-none" />
+
+            <div className="relative bg-white rounded-3xl shadow-[0_16px_60px_rgba(0,0,0,0.28)] border border-white/10 overflow-hidden">
+
+              {/* Card header band */}
+              <div className="bg-[#1E4E8C] px-8 py-6 border-b border-slate-100">
+                <h2 className="text-xl font-bold text-white tracking-tight">Get Free Consultation</h2>
+                <p className="text-white/65 text-sm mt-1">
+                  Our CA will call you within <span className="font-semibold text-white">15 minutes</span>
+                </p>
+              </div>
+
+              <div className="px-8 py-7">
+                {submitted ? (
+                  <div className="py-10 text-center">
+                    <div className="w-16 h-16 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <CheckCircle2 className="w-8 h-8 text-[#4CAF50]" />
+                    </div>
+                    <h3 className="text-lg font-bold text-[#1E4E8C] mb-1">Request Received!</h3>
+                    <p className="text-slate-500 text-sm">Our expert will contact you shortly.</p>
                   </div>
-                  <div className="text-xs font-bold text-slate-200 mt-0.5">100,000+ <span className="text-slate-400 font-medium">Businesses</span></div>
-                </div>
+                ) : (
+                  <form className="space-y-4" onSubmit={handleSubmit}>
+                    {/* Name */}
+                    <div>
+                      <label className="block text-[12px] font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+                        Full Name <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="text"
+                        required
+                        placeholder="Rajesh Kumar"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 text-[15px] focus:outline-none focus:ring-2 focus:ring-[#4CAF50]/30 focus:border-[#4CAF50] transition-all"
+                      />
+                    </div>
+
+                    {/* Phone */}
+                    <div>
+                      <label className="block text-[12px] font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+                        Phone Number <span className="text-red-500">*</span>
+                      </label>
+                      <input
+                        type="tel"
+                        required
+                        placeholder="+91 98765 43210"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 text-[15px] focus:outline-none focus:ring-2 focus:ring-[#4CAF50]/30 focus:border-[#4CAF50] transition-all"
+                      />
+                    </div>
+
+                    {/* Service */}
+                    <div>
+                      <label className="block text-[12px] font-bold text-slate-600 uppercase tracking-wider mb-1.5">
+                        Service Required
+                      </label>
+                      <select
+                        value={formData.service}
+                        onChange={(e) => setFormData({ ...formData, service: e.target.value })}
+                        className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 text-[15px] focus:outline-none focus:ring-2 focus:ring-[#4CAF50]/30 focus:border-[#4CAF50] transition-all appearance-none"
+                      >
+                        <option value="">Select a service…</option>
+                        <option>Company Registration</option>
+                        <option>GST Registration &amp; Filing</option>
+                        <option>ROC / MCA Compliance</option>
+                        <option>Trademark Filing</option>
+                        <option>Income Tax Return</option>
+                        <option>FSSAI License</option>
+                        <option>ISO Certification</option>
+                        <option>Other Compliance</option>
+                      </select>
+                    </div>
+
+                    {/* CTA */}
+                    <button
+                      type="submit"
+                      className="w-full mt-2 bg-[#4CAF50] hover:bg-[#43A047] text-white font-bold text-[15px] py-4 rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(76,175,80,0.35)] hover:shadow-[0_6px_24px_rgba(76,175,80,0.45)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300 group/btn"
+                    >
+                      Get Free Consultation
+                      <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform" />
+                    </button>
+
+                    {/* Micro-trust row */}
+                    <div className="flex items-center justify-center gap-4 pt-1">
+                      <span className="flex items-center gap-1.5 text-[11px] text-slate-400 font-medium">
+                        <Lock className="w-3 h-3" /> 100% Confidential
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-slate-300" />
+                      <span className="flex items-center gap-1.5 text-[11px] text-slate-400 font-medium">
+                        <CheckCircle2 className="w-3 h-3 text-[#4CAF50]" /> No Spam Calls
+                      </span>
+                      <span className="w-1 h-1 rounded-full bg-slate-300" />
+                      <span className="flex items-center gap-1.5 text-[11px] text-slate-400 font-medium">
+                        <Clock className="w-3 h-3" /> 15 Min Reply
+                      </span>
+                    </div>
+                  </form>
+                )}
               </div>
 
-              <div className="hidden sm:block w-px h-8 bg-slate-700"></div>
-
-              <div className="flex flex-col gap-1.5">
-                <div className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold text-slate-300">
-                   <CheckCircle className="w-3.5 h-3.5 text-accent-500" /> ISO 9001:2015 Target
-                </div>
-                <div className="flex items-center gap-2 text-[11px] sm:text-xs font-semibold text-slate-300">
-                   <ShieldCheck className="w-3.5 h-3.5 text-accent-500" /> CA & CS Experts
-                </div>
+              {/* Bottom compliance bar */}
+              <div className="px-8 py-4 bg-slate-50 border-t border-slate-100 flex items-center gap-2">
+                <ShieldCheck className="w-4 h-4 text-[#1E4E8C] shrink-0" />
+                <p className="text-[11px] text-slate-500 font-medium">
+                  Data protected under the IT Act, 2000. Your information is never shared.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Right side graphic */}
-          <div className="w-full flex justify-center lg:justify-end mt-10 lg:mt-0">
-            <FloatingServiceCards />
-          </div>
         </div>
       </div>
     </section>
