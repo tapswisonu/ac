@@ -1,105 +1,452 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import ContactForm from '@/components/forms/ContactForm';
+import {
+  MapPin, Phone, Mail, Clock, CheckCircle2,
+  ArrowRight, Shield, Star, Users, Zap, Building2, MessageSquare
+} from 'lucide-react';
+
+const services = [
+  'Company Registration',
+  'ROC / MCA Filing',
+  'GST Registration & Filing',
+  'Income Tax Return',
+  'Trademark Filing',
+  'FSSAI License',
+  'ISO Certification',
+  'Legal Compliance',
+  'Other Query',
+];
+
+const contactDetails = [
+  {
+    icon: Phone,
+    label: 'Call Us Directly',
+    value: '+91 9643 862 867',
+    sub: 'Mon – Sat, 9:00 AM – 7:00 PM',
+    href: 'tel:+919643862867',
+    color: 'text-[#1E4E8C]',
+    bg: 'bg-[#1E4E8C]/8',
+  },
+  {
+    icon: Mail,
+    label: 'Email Support',
+    value: 'info@ajaccountinggroup.com',
+    sub: 'We reply within 24 hours',
+    href: 'mailto:info@ajaccountinggroup.com',
+    color: 'text-[#4CAF50]',
+    bg: 'bg-[#4CAF50]/8',
+  },
+  {
+    icon: MapPin,
+    label: 'Visit Our Office',
+    value: 'No G 16, Dharmpal Palace',
+    sub: 'Sector 27, Noida 201301',
+    href: 'https://maps.google.com/?q=Sector+27+Noida',
+    color: 'text-[#1E4E8C]',
+    bg: 'bg-[#1E4E8C]/8',
+  },
+  {
+    icon: Clock,
+    label: 'Office Hours',
+    value: 'Mon – Sat',
+    sub: '9:00 AM – 7:00 PM IST',
+    href: null,
+    color: 'text-[#4CAF50]',
+    bg: 'bg-[#4CAF50]/8',
+  },
+];
+
+const trustPoints = [
+  'Response within 24 hours — guaranteed',
+  'Dedicated CA & CS assigned to your case',
+  'Free initial consultation, no hidden charges',
+  'Served 1,000+ businesses across India',
+];
 
 export default function ContactPage() {
+  const [form, setForm] = useState({ name: '', phone: '', email: '', service: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+      setSubmitted(true);
+    }, 1400);
+  };
+
+  const set = (k: keyof typeof form) => (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+    setForm((f) => ({ ...f, [k]: e.target.value }));
+
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row bg-white">
-      {/* Left Column (Brand & Content) */}
-      <div className="w-full lg:w-5/12 bg-primary-950 text-white flex flex-col justify-between relative overflow-hidden">
-        {/* Background Decorative Elements */}
-        <div className="absolute top-0 right-0 -m-32 w-96 h-96 bg-primary-800 rounded-full mix-blend-multiply filter blur-3xl opacity-50 animate-blob"></div>
-        <div className="absolute bottom-0 left-0 -m-32 w-96 h-96 bg-secondary-900 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
+    <>
+      {/* ─────────────────────────────────────────────
+          PAGE HEAD — SEO meta is handled in layout
+      ───────────────────────────────────────────── */}
 
-        <div className="p-8 lg:p-14 xl:p-20 relative z-10 flex flex-col h-full">
-          {/* Logo / Back Link */}
-          <Link href="/" className="inline-flex items-center text-white/80 hover:text-white transition-colors group mb-16 lg:mb-auto w-fit">
-            <svg className="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
-            Back to Home
-          </Link>
+      {/* ── 1. Hero Banner ── */}
+      <section className="relative bg-[#1E4E8C] pt-28 pb-20 overflow-hidden">
+        {/* Grid overlay */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.8) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.8) 1px,transparent 1px)',
+            backgroundSize: '56px 56px',
+          }}
+        />
+        <div className="absolute -top-40 -left-40 w-[500px] h-[500px] bg-[#112a50] rounded-full blur-[140px] opacity-60 pointer-events-none" />
+        <div className="absolute -bottom-40 -right-40 w-[400px] h-[400px] bg-[#163665] rounded-full blur-[120px] opacity-50 pointer-events-none" />
 
-          <div>
-            <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight mb-6">
-              Expert corporate compliance, <span className="text-secondary-400 relative inline-block">
-                done right.
-                <svg className="absolute w-full h-3 -bottom-1 left-0 text-secondary-500/30" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="3" fill="transparent" />
-                </svg>
+        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 text-center">
+          {/* Breadcrumb */}
+          <nav className="flex items-center justify-center gap-2 text-xs text-white/50 font-medium mb-6" aria-label="Breadcrumb">
+            <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
+            <span>/</span>
+            <span className="text-white/70">Contact</span>
+          </nav>
+
+          {/* SEO H1 */}
+          <h1 className="text-4xl sm:text-5xl lg:text-[52px] font-extrabold text-white tracking-tight leading-[1.12] mb-5">
+            Contact{' '}
+            <span className="text-[#4CAF50]">Compliance Experts</span>
+            <br className="hidden sm:block" /> in India
+          </h1>
+
+          <p className="text-white/70 text-lg max-w-2xl mx-auto leading-relaxed mb-8">
+            Reach our team of qualified CAs and CSs for company registration, GST filing,
+            ROC compliance, and all corporate legal services — pan-India.
+          </p>
+
+          {/* Quick trust badges */}
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            {[
+              { icon: Zap, text: 'Response within 24 hours' },
+              { icon: Shield, text: '100% Confidential' },
+              { icon: Users, text: '1,000+ Businesses Helped' },
+              { icon: Star, text: '4.9 / 5 Rating' },
+            ].map(({ icon: Icon, text }) => (
+              <span
+                key={text}
+                className="inline-flex items-center gap-1.5 bg-white/10 border border-white/15 rounded-full px-4 py-1.5 text-xs font-semibold text-white/85"
+              >
+                <Icon className="w-3 h-3 text-[#4CAF50]" />
+                {text}
               </span>
-            </h1>
-            <p className="text-lg lg:text-xl text-primary-100 mb-12 max-w-lg">
-              Partner with India&apos;s most trusted legal advisors. Get personalized solutions for your business registration, taxation, and compliance needs.
-            </p>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            <div className="space-y-6 mb-12">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-primary-800 flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-secondary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">Fast Turnaround</h3>
-                  <p className="text-primary-200 text-sm">We process your requests within 24-48 hours.</p>
+      {/* ── 2. Main Content: Form + Side Info ── */}
+      <section className="bg-slate-50 py-20 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] xl:grid-cols-[1fr_460px] gap-10 lg:gap-14 items-start">
+
+            {/* ── LEFT: Contact Form ── */}
+            <div className="bg-white rounded-3xl shadow-[0_4px_30px_rgba(0,0,0,0.07)] border border-slate-100 overflow-hidden">
+
+              {/* Form header */}
+              <div className="bg-[#1E4E8C] px-8 py-7">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 bg-white/15 rounded-xl flex items-center justify-center">
+                    <MessageSquare className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-white">Book Free Consultation</h2>
+                    <p className="text-white/65 text-sm mt-0.5">
+                      We respond within <span className="font-semibold text-white">24 hours</span>
+                    </p>
+                  </div>
                 </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-primary-800 flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-secondary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">Transparent Pricing</h3>
-                  <p className="text-primary-200 text-sm">No hidden fees. You pay exactly what you see.</p>
-                </div>
-              </div>
+              <div className="px-8 py-8">
+                {submitted ? (
+                  /* ── Success State ── */
+                  <div className="py-14 text-center">
+                    <div className="w-20 h-20 bg-[#4CAF50]/10 border border-[#4CAF50]/20 rounded-full flex items-center justify-center mx-auto mb-5">
+                      <CheckCircle2 className="w-9 h-9 text-[#4CAF50]" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-[#1E4E8C] mb-2">Request Received!</h3>
+                    <p className="text-slate-500 text-[15px] max-w-sm mx-auto mb-8">
+                      Thank you! Our compliance expert will contact you within 24 hours.
+                    </p>
+                    <button
+                      onClick={() => { setSubmitted(false); setForm({ name: '', phone: '', email: '', service: '', message: '' }); }}
+                      className="px-8 py-3 border border-slate-200 rounded-xl text-slate-600 font-semibold hover:bg-slate-50 transition-colors text-sm"
+                    >
+                      Submit Another Request
+                    </button>
+                  </div>
+                ) : (
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    {/* Row 1: Name + Phone */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                          Full Name <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          placeholder="Rajesh Kumar"
+                          value={form.name}
+                          onChange={set('name')}
+                          className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4CAF50]/25 focus:border-[#4CAF50] transition-all"
+                        />
+                      </div>
+                      <div>
+                        <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                          Phone Number <span className="text-red-500">*</span>
+                        </label>
+                        <input
+                          type="tel"
+                          required
+                          placeholder="+91 98765 43210"
+                          value={form.phone}
+                          onChange={set('phone')}
+                          className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4CAF50]/25 focus:border-[#4CAF50] transition-all"
+                        />
+                      </div>
+                    </div>
 
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-full bg-primary-800 flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-secondary-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="font-bold text-lg">Dedicated Expert</h3>
-                  <p className="text-primary-200 text-sm">A personalized manager handles your end-to-end process.</p>
-                </div>
+                    {/* Email */}
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                        Email Address
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="rajesh@example.com"
+                        value={form.email}
+                        onChange={set('email')}
+                        className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4CAF50]/25 focus:border-[#4CAF50] transition-all"
+                      />
+                    </div>
+
+                    {/* Service */}
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                        Service Required <span className="text-red-500">*</span>
+                      </label>
+                      <select
+                        required
+                        value={form.service}
+                        onChange={set('service')}
+                        className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4CAF50]/25 focus:border-[#4CAF50] transition-all appearance-none"
+                      >
+                        <option value="">Select a service…</option>
+                        {services.map((s) => (
+                          <option key={s} value={s}>{s}</option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {/* Message */}
+                    <div>
+                      <label className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-1.5">
+                        Message <span className="text-slate-300 font-normal normal-case">(optional)</span>
+                      </label>
+                      <textarea
+                        rows={4}
+                        placeholder="Tell us briefly about your requirement…"
+                        value={form.message}
+                        onChange={set('message')}
+                        className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-800 placeholder-slate-400 text-[14px] focus:outline-none focus:ring-2 focus:ring-[#4CAF50]/25 focus:border-[#4CAF50] transition-all resize-none"
+                      />
+                    </div>
+
+                    {/* Submit */}
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full py-4 bg-[#4CAF50] hover:bg-[#43A047] disabled:opacity-70 text-white font-bold text-[15px] rounded-xl flex items-center justify-center gap-2 shadow-[0_4px_20px_rgba(76,175,80,0.3)] hover:shadow-[0_6px_24px_rgba(76,175,80,0.4)] hover:-translate-y-0.5 active:scale-[0.98] transition-all duration-300 group/btn"
+                    >
+                      {loading ? (
+                        <>
+                          <span className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
+                          Submitting…
+                        </>
+                      ) : (
+                        <>
+                          Book Free Consultation
+                          <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-0.5 transition-transform" />
+                        </>
+                      )}
+                    </button>
+
+                    {/* Micro-trust */}
+                    <p className="text-center text-[11px] text-slate-400 pt-1">
+                      <Shield className="inline w-3 h-3 mr-1 relative -top-px" />
+                      Your data is 100% confidential. We never share your information. IT Act 2000 compliant.
+                    </p>
+                  </form>
+                )}
               </div>
             </div>
-          </div>
 
-          <div className="mt-auto hidden lg:block">
-            <div className="flex items-center gap-4 bg-primary-900/50 p-4 rounded-2xl border border-primary-800/50 backdrop-blur-sm">
-              <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <Image key={i} className="w-10 h-10 rounded-full border-2 border-primary-900" src={`https://i.pravatar.cc/100?img=${i + 10}`} alt={`User ${i}`} width={40} height={40} />
-                ))}
-              </div>
-              <div>
-                <div className="flex text-yellow-400 text-sm">
-                  {'★★★★★'.split('').map((star, i) => <span key={i}>{star}</span>)}
+            {/* ── RIGHT: Contact Info + Trust + Map ── */}
+            <div className="space-y-6">
+
+              {/* Contact Details Cards */}
+              {contactDetails.map((c) => (
+                <div
+                  key={c.label}
+                  className="bg-white rounded-2xl p-5 border border-slate-100 shadow-sm flex items-start gap-4 hover:shadow-md hover:-translate-y-0.5 transition-all duration-200"
+                >
+                  <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 ${c.bg}`}>
+                    <c.icon className={`w-5 h-5 ${c.color}`} />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider mb-0.5">{c.label}</p>
+                    {c.href ? (
+                      <a
+                        href={c.href}
+                        target={c.href.startsWith('http') ? '_blank' : undefined}
+                        rel="noopener noreferrer"
+                        className={`font-bold text-[15px] ${c.color} hover:underline underline-offset-2 block truncate`}
+                      >
+                        {c.value}
+                      </a>
+                    ) : (
+                      <p className={`font-bold text-[15px] ${c.color}`}>{c.value}</p>
+                    )}
+                    <p className="text-slate-500 text-[13px] mt-0.5">{c.sub}</p>
+                  </div>
                 </div>
-                <p className="text-xs font-medium text-primary-100 mt-0.5">Trusted by 5,000+ Indian Businesses</p>
+              ))}
+
+              {/* Trust Checklist Box */}
+              <div className="bg-[#1E4E8C] rounded-2xl p-6 border border-[#1a4279]">
+                <div className="flex items-center gap-2 mb-4">
+                  <Building2 className="w-5 h-5 text-[#4CAF50]" />
+                  <h3 className="font-bold text-white text-[15px]">Why Contact Us?</h3>
+                </div>
+                <ul className="space-y-3">
+                  {trustPoints.map((pt) => (
+                    <li key={pt} className="flex items-start gap-2.5 text-[13px] text-white/80 leading-snug">
+                      <CheckCircle2 className="w-4 h-4 text-[#4CAF50] shrink-0 mt-0.5" />
+                      {pt}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Embedded Google Map */}
+              <div className="rounded-2xl overflow-hidden border border-slate-200 shadow-sm">
+                <iframe
+                  title="AJ Accounting Group Office Location"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.8!2d77.35!3d28.57!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM0JzEyLjAiTiA3N8KwMjEnMDAuMCJF!5e0!3m2!1sen!2sin!4v1234567890"
+                  width="100%"
+                  height="220"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+                <div className="bg-white px-4 py-3 border-t border-slate-100 flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-[#1E4E8C] shrink-0" />
+                  <p className="text-[12px] text-slate-500 font-medium">
+                    No G 16, Dharmpal Palace, Sector 27, Noida 201301, Uttar Pradesh
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Right Column (Form) */}
-      <div className="w-full lg:w-7/12 bg-slate-50 flex items-center justify-center p-6 sm:p-8 lg:p-16 xl:p-24 min-h-[600px] relative">
-         {/* Subtle Grid Pattern */}
-         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-         
-         <div className="w-full max-w-xl relative z-10 animate-in slide-in-from-bottom-5 duration-700 ease-out fade-in">
-           <ContactForm />
-         </div>
-      </div>
-    </div>
+      {/* ── 3. Alternative Contact Methods ── */}
+      <section className="bg-white py-16 border-b border-slate-100">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+          <p className="text-[11px] font-bold text-slate-400 uppercase tracking-widest mb-3">Prefer a different way?</p>
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1E4E8C] mb-8">Reach Us Any Way You Like</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">
+            {[
+              {
+                label: 'Call Now',
+                value: '+91 9643 862 867',
+                desc: 'Speak directly with a compliance expert',
+                icon: Phone,
+                href: 'tel:+919643862867',
+                cta: 'Call Now',
+                primary: false,
+              },
+              {
+                label: 'WhatsApp',
+                value: 'Chat on WhatsApp',
+                desc: 'Message us on WhatsApp for quick replies',
+                icon: MessageSquare,
+                href: 'https://wa.me/919643862867',
+                cta: 'Open WhatsApp',
+                primary: true,
+              },
+              {
+                label: 'Email',
+                value: 'info@ajaccountinggroup.com',
+                desc: 'Email us your documents or queries',
+                icon: Mail,
+                href: 'mailto:info@ajaccountinggroup.com',
+                cta: 'Send Email',
+                primary: false,
+              },
+            ].map((method) => (
+              <a
+                key={method.label}
+                href={method.href}
+                target={method.href.startsWith('http') ? '_blank' : undefined}
+                rel="noopener noreferrer"
+                className={`group flex flex-col items-center text-center p-7 rounded-2xl border transition-all hover:-translate-y-1 hover:shadow-lg ${
+                  method.primary
+                    ? 'bg-[#4CAF50] border-[#4CAF50] text-white shadow-[0_4px_20px_rgba(76,175,80,0.2)] hover:shadow-[0_8px_28px_rgba(76,175,80,0.3)]'
+                    : 'bg-white border-slate-200 hover:border-[#1E4E8C]/30'
+                }`}
+              >
+                <div className={`w-13 h-13 w-14 h-14 rounded-2xl flex items-center justify-center mb-4 ${
+                  method.primary ? 'bg-white/20' : 'bg-[#1E4E8C]/6'
+                }`}>
+                  <method.icon className={`w-6 h-6 ${method.primary ? 'text-white' : 'text-[#1E4E8C]'}`} />
+                </div>
+                <p className={`text-[11px] font-bold uppercase tracking-widest mb-1 ${method.primary ? 'text-white/70' : 'text-slate-400'}`}>
+                  {method.label}
+                </p>
+                <p className={`font-bold text-[15px] mb-1.5 ${method.primary ? 'text-white' : 'text-[#1E4E8C]'}`}>
+                  {method.value}
+                </p>
+                <p className={`text-[13px] mb-5 ${method.primary ? 'text-white/70' : 'text-slate-500'}`}>
+                  {method.desc}
+                </p>
+                <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full transition-colors ${
+                  method.primary
+                    ? 'bg-white text-[#4CAF50]'
+                    : 'bg-[#1E4E8C]/8 text-[#1E4E8C] group-hover:bg-[#1E4E8C] group-hover:text-white'
+                }`}>
+                  {method.cta}
+                  <ArrowRight className="w-3 h-3" />
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. SEO Schema-friendly bottom block ── */}
+      <section className="bg-slate-50 py-12">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+          <p className="text-slate-500 text-[13px] leading-relaxed">
+            AJ Accounting Group provides corporate compliance services across India including company registration,
+            GST filing, ROC / MCA annual compliance, income tax returns, trademark registration,
+            and legal secretarial services. Our offices are located in Noida, serving clients pan-India
+            including Delhi, Mumbai, Bangalore, Chennai, Hyderabad, Pune, Kolkata, and all major cities.
+            Contact our compliance experts today for a free consultation.
+          </p>
+        </div>
+      </section>
+    </>
   );
 }

@@ -6,7 +6,7 @@ import Image from "next/image";
 import {
   ChevronDown, Menu, X, Building2, Landmark, Globe,
   FileText, Receipt, Users, Award, Briefcase, Banknote, Building,
-  Star, ShieldCheck, Zap, TrendingUp
+  Star, ShieldCheck, Zap, TrendingUp, ChevronRight
 } from "lucide-react";
 
 /* ─────────────────────────────────────────
@@ -502,35 +502,37 @@ function MegaMenuDropdown({ menu, alignment = "center" }: { menu: typeof megaMen
       : "left-1/2 -translate-x-1/2";
 
   return (
-    <div className={`absolute top-full ${alignmentClass} w-[720px] xl:w-[820px] bg-white border border-gray-100 shadow-2xl rounded-xl overflow-hidden z-50 mt-1`}>
+    <div className={`absolute top-full ${alignmentClass} w-[780px] xl:w-[860px] bg-white backdrop-blur-xl border border-slate-100 shadow-[0_20px_40px_rgba(0,0,0,0.08)] rounded-2xl overflow-hidden z-50 mt-2`}>
       {/* Popular strip */}
-      <div className="bg-gradient-to-r from-secondary-50 to-orange-50 border-b border-secondary-100 px-6 py-3 flex items-center gap-3">
-        <Star className="w-4 h-4 text-secondary-500 shrink-0" />
-        <span className="text-xs font-bold text-secondary-600 uppercase tracking-wider mr-2">Popular:</span>
+      <div className="bg-slate-50 border-b border-slate-100 px-6 py-3.5 flex items-center gap-3">
+        <Star className="w-4 h-4 text-[#1E4E8C] shrink-0" />
+        <span className="text-xs font-bold text-[#1E4E8C] uppercase tracking-wider mr-2">Popular:</span>
         {menu.popular.map((p, i) => (
-          <span key={i} className="text-xs bg-white border border-secondary-200 text-secondary-700 px-3 py-1 rounded-full font-medium hover:bg-primary-500 hover:text-white hover:border-primary-500 cursor-pointer transition-colors">
+          <span key={i} className="text-[11px] font-bold bg-white border border-slate-200 text-slate-600 px-3 py-1 rounded-full hover:bg-slate-100 cursor-pointer transition-colors shadow-sm">
             {p}
           </span>
         ))}
       </div>
 
       {/* 4-column grid */}
-      <div className="grid grid-cols-4 gap-0 p-6">
+      <div className="grid grid-cols-4 gap-2 p-4">
         {menu.columns.map((col, idx) => (
-          <div key={idx} className={`flex flex-col ${idx < menu.columns.length - 1 ? "border-r border-gray-100 pr-4 mr-4" : ""}`}>
-            <div className="flex items-center gap-2 mb-3">
-              <span className="text-primary-500">{col.icon}</span>
-              <h3 className="text-xs font-bold tracking-wider text-gray-500 uppercase">{col.title}</h3>
+          <div key={idx} className={`flex flex-col p-3 rounded-xl hover:bg-slate-50/50 transition-colors ${idx < menu.columns.length - 1 ? "border-r border-slate-50" : ""}`}>
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1E4E8C] flex items-center justify-center shadow-sm border border-blue-100/50 shrink-0">
+                 {React.cloneElement(col.icon as React.ReactElement, { className: 'w-4 h-4' })}
+              </div>
+              <h3 className="text-[11px] font-bold tracking-wider text-[#1E4E8C] uppercase px-1">{col.title}</h3>
             </div>
-            <ul className="space-y-2">
+            <ul className="space-y-1">
               {col.links.map((link, lidx) => (
                 <li key={lidx}>
                   <Link
                     href={link.url}
-                    className="text-[13px] text-gray-700 hover:text-primary-500 transition-colors flex items-center gap-1 group"
+                    className="block px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-[#4CAF50] hover:bg-green-50/60 transition-all flex items-center justify-between group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-gray-300 group-hover:bg-primary-400 transition-colors shrink-0" />
-                    {link.title}
+                    <span>{link.title}</span>
+                    <ChevronRight className="w-3.5 h-3.5 opacity-0 -mr-2 group-hover:opacity-100 group-hover:mr-0 transition-all text-[#4CAF50]" />
                   </Link>
                 </li>
               ))}
@@ -545,7 +547,7 @@ function MegaMenuDropdown({ menu, alignment = "center" }: { menu: typeof megaMen
 /* ─────────────────────────────────────────
    MAIN HEADER
 ───────────────────────────────────────── */
-export default function Header() {
+export default function Header({ isCompact = false }: { isCompact?: boolean }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [mobileCategoryOpen, setMobileCategoryOpen] = useState<string | null>(null);
@@ -563,9 +565,9 @@ export default function Header() {
   useEffect(() => () => { if (timeoutRef.current) clearTimeout(timeoutRef.current); }, []);
 
   return (
-    <header className="fixed w-full top-[88px] bg-white z-40 border-b border-gray-200 shadow-sm">
+    <header className={`w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-40 border-b ${isCompact ? 'bg-white/90 backdrop-blur-md shadow-md border-slate-200/50' : 'bg-white border-transparent'}`}>
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-[72px]">
+        <div className={`flex justify-between items-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isCompact ? 'h-[60px]' : 'h-[72px]'}`}>
 
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -596,14 +598,14 @@ export default function Header() {
                 onMouseEnter={() => handleMouseEnter(menu.name)}
                 onMouseLeave={handleMouseLeave}
               >
-                <button className={`flex items-center gap-0.5 px-1.5 py-2 text-xs font-medium whitespace-nowrap transition-colors ${activeMenu === menu.name ? "text-primary-500" : "text-gray-700 hover:text-primary-500"}`}>
+                <button className={`flex items-center gap-0.5 px-3 py-2 rounded-lg text-[13px] font-bold whitespace-nowrap transition-colors ${activeMenu === menu.name ? "text-[#1E4E8C] bg-blue-50" : "text-[#1E4E8C] hover:text-[#4CAF50] hover:bg-slate-50"}`}>
                   {menu.name}
-                  <ChevronDown className={`w-3 h-3 transition-transform duration-200 ${activeMenu === menu.name ? "rotate-180" : ""}`} />
+                  <ChevronDown className={`w-3.5 h-3.5 mt-0.5 transition-transform duration-200 ${activeMenu === menu.name ? "rotate-180" : ""}`} />
                 </button>
 
                 {/* Active indicator bar */}
                 {activeMenu === menu.name && (
-                  <div className="absolute bottom-0 left-3 right-3 h-0.5 bg-primary-500 rounded-full" />
+                  <div className="absolute bottom-0 left-4 right-4 h-[3px] bg-[#4CAF50] rounded-t-lg" />
                 )}
 
                 {/* Mega menu */}
@@ -663,7 +665,7 @@ export default function Header() {
             ))}
 
             <div className="p-4">
-              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center bg-primary-600 text-white py-3 rounded-lg font-semibold text-sm hover:bg-primary-700 transition-all duration-300">
+              <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className="flex items-center justify-center bg-[#4CAF50] hover:bg-[#43A047] text-white py-3 rounded-lg font-semibold text-sm transition-all duration-300">
                 Free Consultation
               </Link>
             </div>

@@ -1,72 +1,162 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Mail, MapPin, Phone, Star, Linkedin, Instagram, Facebook, MessageCircle, CheckCircle2, ChevronRight } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-12">
-        {/* Company Info */}
-        <div className="col-span-1 md:col-span-1 border-gray-700">
-          <Link href="/" className="mb-6 inline-block">
-            <div className="relative w-48 h-12">
-              <Image 
-                src="/logo.png" 
-                alt="Aj Accounting Group Logo" 
-                fill 
-                className="object-contain object-left" 
-              />
+    <footer className="relative mt-2">
+     
+      {/* Main Footer Background — Deep Brand Blue */}
+      <div className="bg-[#1E4E8C] pt-16 md:pt-20 pb-8">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          
+          {/* Main Footer Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 mb-16">
+            
+            {/* Column 1: Brand Info */}
+            <div className="flex flex-col">
+              <Link href="/" className="mb-8 inline-block">
+                <div className="w-12 h-12 bg-white rounded-xl flex items-center justify-center mb-4 shadow-sm relative overflow-hidden">
+                  <Image src="/logo.png" alt="AJ Logo" fill className="object-contain p-1.5" />
+                </div>
+                <span className="text-2xl font-bold text-white tracking-tight">AJ Accounting</span>
+              </Link>
+              <p className="text-white/60 text-sm leading-relaxed mb-8 pr-4">
+                ISO 9001:2015 Certified accounting and finance firm. We simplify compliance, registration, and tax filings for modern businesses.
+              </p>
+              <div className="flex flex-col gap-2.5">
+                <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white/10 border border-white/15 text-xs font-semibold text-white/80 w-fit tracking-wide">
+                  <CheckCircle2 className="w-4 h-4 text-[#4CAF50]" /> 5+ Years Experience
+                </span>
+                <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white/10 border border-white/15 text-xs font-semibold text-white/80 w-fit tracking-wide">
+                  <CheckCircle2 className="w-4 h-4 text-[#4CAF50]" /> 500+ Trusted Clients
+                </span>
+                <span className="inline-flex items-center gap-2 px-3.5 py-2 rounded-lg bg-white/10 border border-white/15 text-xs font-semibold text-white/80 w-fit tracking-wide">
+                  <CheckCircle2 className="w-4 h-4 text-[#4CAF50]" /> ISO 9001:2015 Certified
+                </span>
+              </div>
             </div>
-          </Link>
-          <p className="text-gray-400 mb-6 leading-relaxed text-sm">
-            Ajaccounting-Group is an ISO 9001:2015 Certified accounting and finance firm with operations in Noida and Delhi. We operate with over 5 years of experience helping customers with their accounting and financial needs.
-          </p>
-        </div>
 
-        {/* Popular Services */}
-        <div>
-          <h4 className="text-lg font-bold mb-6 text-gray-100 tracking-wide uppercase">Popular Services</h4>
-          <ul className="space-y-4">
-            <li><Link href="/services/ca-services" className="text-gray-400 hover:text-primary-500 transition-colors">CA Services</Link></li>
-            <li><Link href="/services/cfo-services" className="text-gray-400 hover:text-primary-500 transition-colors">CFO Services</Link></li>
-            <li><Link href="/services/account-outsourcing" className="text-gray-400 hover:text-primary-500 transition-colors">Account Outsourcing</Link></li>
-            <li><Link href="/services/certifications" className="text-gray-400 hover:text-primary-500 transition-colors">Certifications (ISO, IATA)</Link></li>
-          </ul>
-        </div>
+            {/* Column 2: Popular Services */}
+            <div>
+              <h4 className="text-[13px] font-bold mb-8 text-white tracking-widest uppercase">Popular Services</h4>
+              <ul className="space-y-4">
+                {['Company Registration', 'GST Services', 'Trademark Filing', 'FSSAI License', 'Income Tax Filing'].map((item) => (
+                  <li key={item}>
+                    <Link href="#" className="text-white/60 hover:text-[#4CAF50] text-[15px] transition-colors flex items-center gap-2 group">
+                      <ChevronRight className="w-3.5 h-3.5 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#4CAF50] shrink-0" /> 
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        {/* Resources */}
-        <div>
-          <h4 className="text-lg font-bold mb-6 text-gray-100 tracking-wide uppercase">Resources</h4>
-          <ul className="space-y-4">
-            <li><Link href="/about" className="text-gray-400 hover:text-primary-500 transition-colors">About Us</Link></li>
-            <li><Link href="/blog" className="text-gray-400 hover:text-primary-500 transition-colors">Blog</Link></li>
-            <li><Link href="/contact" className="text-gray-400 hover:text-primary-500 transition-colors">Contact Us</Link></li>
-          </ul>
-        </div>
+            {/* Column 3: Resources */}
+            <div>
+              <h4 className="text-[13px] font-bold mb-8 text-white tracking-widest uppercase">Resources</h4>
+              <ul className="space-y-4">
+                {['About Us', 'Blog', 'Contact Us', 'FAQ', 'Privacy Policy', 'Terms & Conditions'].map((item) => (
+                  <li key={item}>
+                    <Link href="#" className="text-white/60 hover:text-[#4CAF50] text-[15px] transition-colors flex items-center gap-2 group">
+                      <ChevronRight className="w-3.5 h-3.5 opacity-0 -ml-5 group-hover:opacity-100 group-hover:ml-0 transition-all text-[#4CAF50] shrink-0" /> 
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        {/* Contact */}
-        <div>
-          <h4 className="text-lg font-bold mb-6 text-gray-100 tracking-wide uppercase">Contact</h4>
-          <ul className="space-y-4">
-            <li className="text-gray-400 text-sm leading-relaxed">
-              <a 
-                href="https://www.bing.com/maps/search?q=Office+No+G+16+Ground+Floor+Dharmpali+Palace+Bhoja+Market+Near+Vinayak+Hospital+Sector+27+Noida%2C+Bhoja+Market%2C+Noida%2C+Uttar+Pradesh+201301%2C+IN&cp=28.525282%7E77.397499&lvl=11.1&style=r" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="hover:text-primary-500 transition-colors"
-                title="Get directions to our office"
-              >
-                Office No G 16, Ground Floor, Dharmpali Palace, Bhoja Market, Near Vinayak Hospital, Sector 27 Noida, UP 201301
+            {/* Column 4: Contact */}
+            <div>
+              <h4 className="text-[13px] font-bold mb-8 text-white tracking-widest uppercase">Contact Us</h4>
+              <ul className="space-y-6">
+                <li className="flex items-start gap-4 text-white/80 text-[15px]">
+                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
+                    <MapPin className="w-4 h-4 text-white" />
+                  </div>
+                  <a href="#" className="hover:text-[#4CAF50] transition-colors leading-relaxed mt-1">
+                    No G 16, Dharmpali Palace,<br />Sector 27, Noida 201301
+                  </a>
+                </li>
+                <li className="flex items-center gap-4 text-white/80 text-[15px]">
+                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
+                    <Phone className="w-4 h-4 text-white" />
+                  </div>
+                  <a href="tel:+919643862867" className="hover:text-[#4CAF50] transition-colors">
+                    +91 9643 862 867
+                  </a>
+                </li>
+                <li className="flex items-center gap-4 text-white/80 text-[15px]">
+                  <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
+                    <Mail className="w-4 h-4 text-white" />
+                  </div>
+                  <a href="mailto:info@ajaccountinggroup.com" className="hover:text-[#4CAF50] transition-colors">
+                    info@ajaccountinggroup.com
+                  </a>
+                </li>
+              </ul>
+              
+              <div className="mt-8 p-5 rounded-2xl bg-white/[0.07] border border-white/15 border-l-2 border-l-[#4CAF50]">
+                <p className="text-[11px] font-bold text-white uppercase tracking-widest mb-1.5 opacity-80">Support Hours</p>
+                <p className="text-sm font-medium text-white/70">Mon - Sat, 10:00 AM - 7:00 PM</p>
+              </div>
+            </div>
+
+          </div>
+
+          {/* Social Proof & Social Media Row */}
+          <div className="flex flex-col lg:flex-row items-center justify-between py-10 border-t border-white/15 gap-8">
+            
+            {/* Social Proof */}
+            <div className="flex flex-col sm:flex-row items-center gap-5">
+               <div className="flex -space-x-3">
+                 {['A','R','N','P'].map((initial, i) => (
+                   <div key={i} className="w-12 h-12 rounded-full border-2 border-[#1E4E8C] bg-[#163665] flex items-center justify-center shrink-0 shadow-sm">
+                     <span className="text-white font-bold text-sm tracking-tighter">{initial}</span>
+                   </div>
+                 ))}
+               </div>
+               <div className="text-center sm:text-left">
+                 <div className="flex items-center justify-center sm:justify-start gap-1 mb-1.5">
+                   {[1,2,3,4,5].map((i) => (
+                     <Star key={i} className="w-4 h-4 fill-[#4CAF50] text-[#4CAF50]" />
+                   ))}
+                 </div>
+                 <p className="text-sm text-white/60"><span className="text-white font-bold tracking-tight">4.9/5 Average Rating</span> &nbsp;|&nbsp; 500+ professionals</p>
+               </div>
+            </div>
+
+            {/* Social Icons */}
+            <div className="flex items-center gap-3">
+              <a href="#" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#4CAF50] border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                <Linkedin className="w-5 h-5" />
               </a>
-            </li>
-            <li className="text-gray-400 text-sm">Phone: 9643862867</li>
-            <li className="text-gray-400 text-sm">Web: www.ajaccountinggroup.com</li>
-          </ul>
-        </div>
-      </div>
+              <a href="#" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#4CAF50] border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#4CAF50] border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#4CAF50] border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                <MessageCircle className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16 pt-8 border-t border-gray-800 text-center text-gray-500">
-        <p>&copy; {new Date().getFullYear()} Aj Accounting-Group. All rights reserved.</p>
+          {/* Bottom Bar */}
+          <div className="mt-2 pt-8 text-[13px] font-medium text-white/40 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/10">
+            <p>&copy; {new Date().getFullYear()} AJ Accounting Group. All rights reserved.</p>
+            <p className="flex items-center gap-1.5 opacity-80">Made with <span className="text-red-400 text-base leading-none">❤️</span> in India</p>
+            <div className="flex items-center gap-6">
+              <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+              <Link href="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
+            </div>
+          </div>
+
+        </div>
       </div>
     </footer>
   );

@@ -48,8 +48,8 @@ const Content = () => (
 export default function AnnouncementBar() {
   return (
     <div
-      className="fixed left-0 right-0 z-40"
-      style={{ height: "40px", overflow: "hidden", top: "48px" }}
+      className="w-full relative"
+      style={{ height: "40px", overflow: "hidden" }}
       aria-label="Promotional announcement"
     >
       {/* Gradient background */}

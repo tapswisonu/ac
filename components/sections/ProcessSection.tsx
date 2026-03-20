@@ -1,90 +1,165 @@
 import React from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { FaPhoneAlt, FaLock, FaShieldAlt, FaCheckCircle } from 'react-icons/fa';
+import {
+  Phone, FileCheck, Cpu, CheckCircle2, ArrowRight,
+  ClipboardList, UserCheck, Rocket
+} from 'lucide-react';
+
+const steps = [
+  {
+    number: '01',
+    icon: Phone,
+    title: 'Free Consultation Call',
+    keyword: 'Expert CA Guidance',
+    desc: 'Speak with a qualified CA or CS about your compliance requirement — company registration, GST, ROC filing, or tax returns. We assess your exact needs and recommend the right service at transparent pricing.',
+    tags: ['No commitment required', 'Same-day callback available'],
+  },
+  {
+    number: '02',
+    icon: ClipboardList,
+    title: 'Document Collection',
+    keyword: 'Fast & Secure Process',
+    desc: 'Submit your documents securely via WhatsApp or email. Our team prepares a tailored checklist — PAN, Aadhaar, address proof, director details — so you only share what is needed, nothing more.',
+    tags: ['256-bit encryption', 'Minimal documents needed'],
+  },
+  {
+    number: '03',
+    icon: Cpu,
+    title: 'Government Filing & Processing',
+    keyword: 'ROC, MCA, GSTN, Income Tax',
+    desc: 'Our experts handle all government filings on your behalf — MCA ROC forms, GSTIN applications, ITR submissions, or trademark applications — with real-time tracking and zero compliance gaps.',
+    tags: ['100% government-compliant', 'Real-time status updates'],
+  },
+  {
+    number: '04',
+    icon: UserCheck,
+    title: 'Verification & Approval',
+    keyword: 'Dedicated Manager Support',
+    desc: 'Your dedicated compliance manager follows up with the relevant authority — GST Council, ROC, Trademark Office, or IT Department — to ensure timely approval and handle any queries or notices proactively.',
+    tags: ['Proactive notice handling', 'Dedicated point of contact'],
+  },
+  {
+    number: '05',
+    icon: FileCheck,
+    title: 'Delivery of Certificate / Filing Acknowledgement',
+    keyword: 'Official Documents Delivered',
+    desc: 'Receive your incorporation certificate, GSTIN, trademark certificate, or filing acknowledgement digitally. All official documents — DSC, DIN, registration copy — are delivered to your inbox immediately on approval.',
+    tags: ['Digital delivery in minutes', 'Secure document storage'],
+  },
+  {
+    number: '06',
+    icon: Rocket,
+    title: 'Ongoing Compliance Management',
+    keyword: 'Annual Compliance & ROC Filings',
+    desc: 'We proactively remind you of upcoming GST return dates, ROC annual filing due dates, and income tax deadlines — so you never miss a compliance date or incur MCA / GST penalties.',
+    tags: ['Auto compliance reminders', 'Annual package available'],
+  },
+];
 
 export default function ProcessSection() {
   return (
-    <section className="py-24 bg-slate-50 relative overflow-hidden border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-primary-50 border border-primary-100 shadow-sm mb-4">
-            <span className="text-sm font-semibold text-primary-600 uppercase tracking-wider">Streamlined Process</span>
+    <section id="how-it-works" className="bg-slate-50 py-24 border-t border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* ── Section Header ── */}
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 bg-[#1E4E8C]/6 border border-[#1E4E8C]/15 rounded-full px-4 py-1.5 mb-5">
+            <CheckCircle2 className="w-3.5 h-3.5 text-[#1E4E8C]" />
+            <span className="text-[11px] font-bold text-[#1E4E8C] uppercase tracking-widest">How It Works</span>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900">
-            How It Works
+          {/* SEO H2 */}
+          <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold text-[#1E4E8C] tracking-tight leading-[1.15] mb-4">
+            Simple Process for<br className="hidden sm:block" />{' '}
+            <span className="text-[#4CAF50]">Compliance Services</span> in India
           </h2>
-          <p className="text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto mt-4">
-            A secure, efficient, and transparent 4-step process to handle all your business compliance needs.
-          </p> 
+          <p className="text-slate-500 text-[16px] leading-relaxed max-w-xl mx-auto">
+            From first call to certificate delivery, our end-to-end compliance process is designed
+            to be fast, transparent, and completely hassle-free for Indian businesses.
+          </p>
         </div>
 
-        <div className="relative">
-          {/* Connector Line */}
-          <div className="hidden md:block absolute top-[44px] left-[12.5%] right-[12.5%] h-px bg-slate-200 z-0"></div>
+        {/* ── Steps Grid ── */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          {steps.map((step, idx) => {
+            const isLast = idx === steps.length - 1;
+            return (
+              <article
+                key={step.number}
+                className={`relative bg-white rounded-2xl p-7 border transition-all duration-300 group hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#1E4E8C]/8 ${
+                  isLast
+                    ? 'border-[#4CAF50] shadow-[0_2px_20px_rgba(76,175,80,0.10)]'
+                    : 'border-slate-200 shadow-sm hover:border-[#1E4E8C]/25'
+                }`}
+              >
+                {/* Top accent stripe on last (CTA) card */}
+                {isLast && (
+                  <div className="absolute top-0 left-6 right-6 h-[3px] bg-[#4CAF50] rounded-b-full" />
+                )}
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
-            {/* Step 1 */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 text-center hover:shadow-xl hover:shadow-primary-500/5 hover:-translate-y-1 hover:border-primary-100 transition-all duration-300 relative group">
-              <div className="absolute -top-4 -right-2 bg-primary-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-slate-50 z-20 shadow-sm transition-transform group-hover:scale-110">
-                1
-              </div>
-              <div className="w-16 h-16 mx-auto bg-primary-50 rounded-2xl flex items-center justify-center mb-5 text-primary-600 text-2xl group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                <FaPhoneAlt />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Expert Consultation</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Discuss your business requirements with our legal professionals to identify the right services.
-              </p>
-            </div>
+                {/* Number + Icon row */}
+                <div className="flex items-center gap-4 mb-5">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center border transition-all duration-300 shadow-sm group-hover:shadow ${
+                    isLast
+                      ? 'bg-[#4CAF50]/10 border-[#4CAF50]/20 text-[#4CAF50] group-hover:bg-[#4CAF50] group-hover:text-white group-hover:border-[#4CAF50]'
+                      : 'bg-[#1E4E8C]/6 border-[#1E4E8C]/10 text-[#1E4E8C] group-hover:bg-[#1E4E8C] group-hover:text-white group-hover:border-[#1E4E8C]'
+                  }`}>
+                    <step.icon className="w-6 h-6" />
+                  </div>
+                  <span className={`text-4xl font-black leading-none tracking-tighter select-none ${
+                    isLast ? 'text-[#4CAF50]/20' : 'text-[#1E4E8C]/12'
+                  }`} style={{ color: isLast ? 'rgba(76,175,80,0.18)' : 'rgba(30,78,140,0.12)' }}>
+                    {step.number}
+                  </span>
+                </div>
 
-            {/* Step 2 */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 text-center hover:shadow-xl hover:shadow-primary-500/5 hover:-translate-y-1 hover:border-primary-100 transition-all duration-300 relative group">
-              <div className="absolute -top-4 -right-2 bg-primary-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-slate-50 z-20 shadow-sm transition-transform group-hover:scale-110">
-                2
-              </div>
-              <div className="w-16 h-16 mx-auto bg-primary-50 rounded-2xl flex items-center justify-center mb-5 text-primary-600 text-2xl group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                <FaLock />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Secure Upload</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Upload your sensitive documents securely through our encrypted digital platform.
-              </p>
-            </div>
+                {/* Keyword label */}
+                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1.5">
+                  {step.keyword}
+                </p>
 
-            {/* Step 3 */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 text-center hover:shadow-xl hover:shadow-primary-500/5 hover:-translate-y-1 hover:border-primary-100 transition-all duration-300 relative group">
-              <div className="absolute -top-4 -right-2 bg-primary-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-slate-50 z-20 shadow-sm transition-transform group-hover:scale-110">
-                3
-              </div>
-              <div className="w-16 h-16 mx-auto bg-primary-50 rounded-2xl flex items-center justify-center mb-5 text-primary-600 text-3xl group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
-                <FaShieldAlt />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Compliance Processing</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Our experts rigorously review and file your applications with government authorities.
-              </p>
-            </div>
+                {/* Step title */}
+                <h3 className={`font-extrabold text-[17px] mb-3 tracking-tight leading-snug transition-colors group-hover:text-[#163665] ${
+                  isLast ? 'text-[#2e7d32]' : 'text-[#1E4E8C]'
+                }`}>
+                  {step.title}
+                </h3>
 
-            {/* Step 4 */}
-            <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-8 text-center hover:shadow-xl hover:shadow-primary-500/5 hover:-translate-y-1 hover:border-accent-200 transition-all duration-300 relative group">
-              <div className="absolute -top-4 -right-2 bg-accent-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold border-4 border-slate-50 z-20 shadow-sm transition-transform group-hover:scale-110">
-                4
-              </div>
-              <div className="w-16 h-16 mx-auto bg-accent-50 rounded-2xl flex items-center justify-center mb-5 text-accent-600 text-3xl group-hover:bg-accent-600 group-hover:text-white transition-colors duration-300">
-                <FaCheckCircle />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Ready for Business</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Receive your official incorporation or compliance certificates instantly upon approval.
-              </p>
-            </div>
-          </div>
+                {/* SEO description */}
+                <p className="text-slate-500 text-[13.5px] leading-relaxed mb-5">
+                  {step.desc}
+                </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2">
+                  {step.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className={`inline-flex items-center gap-1.5 text-[11px] font-semibold px-2.5 py-1 rounded-full ${
+                        isLast
+                          ? 'bg-[#4CAF50]/8 text-[#2e7d32]'
+                          : 'bg-[#1E4E8C]/6 text-[#1E4E8C]'
+                      }`}
+                    >
+                      <CheckCircle2 className="w-3 h-3" />
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </article>
+            );
+          })}
         </div>
-        
-        <div className="mt-20 text-center">
-          <p className="text-slate-900 font-semibold mb-5 text-lg">Ready to start your compliance journey?</p>
-          <Link href="/contact" className="inline-flex items-center gap-2 bg-primary-600 hover:bg-primary-700 text-white font-semibold px-8 py-4 rounded-xl shadow-lg shadow-primary-600/20 transition-all hover:-translate-y-0.5">
+
+        {/* ── Bottom CTA ── */}
+        <div className="mt-14 text-center">
+          <p className="text-slate-500 text-[15px] mb-5">
+            Ready to start your compliance journey?{' '}
+            <span className="font-semibold text-[#1E4E8C]">Get expert help today.</span>
+          </p>
+          <Link
+            href="/contact"
+            className="inline-flex items-center gap-2 bg-[#4CAF50] hover:bg-[#43A047] text-white font-bold px-9 py-4 rounded-xl shadow-lg shadow-[#4CAF50]/20 hover:shadow-[#4CAF50]/30 transition-all hover:-translate-y-0.5"
+          >
             Get Started Today
             <ArrowRight className="w-4 h-4" />
           </Link>
