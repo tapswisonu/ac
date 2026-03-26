@@ -1,6 +1,5 @@
 import React from 'react';
 import ServiceFAQSection from '@/components/sections/ServiceFAQSection';
-import LeadForm from '@/components/forms/LeadForm';
 import {
   CheckCircle2, ShieldCheck, Clock, Users, Award,
   FileText, Headphones, TrendingUp, ArrowRight
@@ -54,8 +53,8 @@ const whyUs = [
   },
   {
     icon: Award,
-    title: 'ISO 9001:2015 Certified',
-    desc: 'Our processes follow international quality standards. We\'re ISO 9001:2015 certified with a proven track record of serving 1,000+ businesses pan-India.',
+    title: 'RA Licensed Professional',
+    desc: 'We are officially RA Licensed and approved by the Government of India, providing verified professional services for aviation security and company compliance.',
   },
 ];
 
@@ -109,23 +108,16 @@ export default async function ServicePage({ params }: { params: { slug: string }
         <div className="absolute -top-40 -left-40 w-[460px] h-[460px] bg-[#112a50] rounded-full blur-[130px] opacity-60 pointer-events-none" />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb */}
-          <nav className="flex items-center gap-2 text-xs text-white/50 font-medium mb-6">
-            <Link href="/" className="hover:text-white/80 transition-colors">Home</Link>
-            <span>/</span>
-            <Link href="/services" className="hover:text-white/80 transition-colors">Services</Link>
-            <span>/</span>
-            <span className="text-white/70">{serviceName}</span>
-          </nav>
 
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-12 items-start">
+
+          <div className="max-w-3xl items-start">
             {/* Left: content */}
             <div className="text-white">
               <h1 className="text-4xl sm:text-5xl font-extrabold leading-[1.12] tracking-tight mb-5">
                 {serviceName}{' '}
                 <span className="text-[#4CAF50]">Services</span> in India
               </h1>
-              <p className="text-white/75 text-lg leading-relaxed max-w-lg mb-8">
+              <p className="text-white/75 text-lg leading-relaxed mb-8">
                 Expert-led {serviceName.toLowerCase()} services handled by qualified CAs and CSs.
                 Fast turnaround, transparent pricing, and 100% government-compliant filings.
               </p>
@@ -141,11 +133,6 @@ export default async function ServicePage({ params }: { params: { slug: string }
                 ))}
               </div>
             </div>
-
-            {/* Right: sticky form */}
-            <div className="lg:mt-0">
-              <LeadForm serviceSlug={params.slug} serviceName={serviceName} />
-            </div>
           </div>
         </div>
       </section>
@@ -153,9 +140,8 @@ export default async function ServicePage({ params }: { params: { slug: string }
       {/* ── 2. Main Content ── */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
-
-          {/* Left: Overview + FAQ */}
-          <div className="lg:col-span-2 space-y-8">
+          {/* Content */}
+          <div className="lg:col-span-3 space-y-8">
 
             {/* Overview */}
             <div className="bg-white rounded-2xl p-8 border border-slate-100 shadow-sm">
@@ -186,13 +172,6 @@ export default async function ServicePage({ params }: { params: { slug: string }
 
             {/* FAQ */}
             <ServiceFAQSection faqs={dummyFaqs} serviceName={serviceName} />
-          </div>
-
-          {/* Right sidebar: repeat form (sticky) */}
-          <div className="lg:col-span-1 hidden lg:block">
-            <div className="sticky top-24" id="lead-form">
-              <LeadForm serviceSlug={params.slug} serviceName={serviceName} />
-            </div>
           </div>
         </div>
       </section>
@@ -240,7 +219,7 @@ export default async function ServicePage({ params }: { params: { slug: string }
           {/* CTA */}
           <div className="text-center">
             <Link
-              href="#lead-form"
+              href="/contact"
               className="inline-flex items-center gap-2 bg-[#4CAF50] hover:bg-[#43A047] text-white font-bold px-10 py-4 rounded-xl shadow-lg shadow-[#4CAF50]/20 hover:shadow-[#4CAF50]/30 hover:-translate-y-0.5 transition-all duration-300 group/btn"
             >
               Get Free Consultation

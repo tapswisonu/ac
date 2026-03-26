@@ -11,6 +11,7 @@ const trustBadges = [
 ];
 
 const services = [
+  'RA License Registration',
   'ROC / MCA Filing',
   'GST Registration & Returns',
   'Company Incorporation',
@@ -60,7 +61,7 @@ export default function HeroSection() {
             <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-7 animate-fade-in-up-d1">
               <span className="w-2 h-2 rounded-full bg-[#4CAF50] animate-pulse" />
               <span className="text-xs font-semibold text-white/90 uppercase tracking-widest">
-                ISO 9001:2015 Certified · Pan-India Services
+                RA Licensed Professional · ISO Certified · Pan-India
               </span>
             </div>
 
@@ -195,14 +196,13 @@ export default function HeroSection() {
                         onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                         className="w-full px-4 py-3.5 bg-slate-50 border border-slate-200 rounded-xl text-slate-700 text-[15px] focus:outline-none focus:ring-2 focus:ring-[#4CAF50]/30 focus:border-[#4CAF50] transition-all appearance-none"
                       >
-                        <option value="">Select a service…</option>
+                        <option>RA License Registration</option>
                         <option>Company Registration</option>
                         <option>GST Registration &amp; Filing</option>
                         <option>ROC / MCA Compliance</option>
                         <option>Trademark Filing</option>
                         <option>Income Tax Return</option>
                         <option>FSSAI License</option>
-                        <option>ISO Certification</option>
                         <option>Other Compliance</option>
                       </select>
                     </div>

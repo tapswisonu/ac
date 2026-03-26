@@ -29,8 +29,8 @@ export default function SiteHeader() {
       <div 
         className="w-full absolute left-0 right-0 pointer-events-auto transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
         style={{
-          top: '88px', // Height of both top bars combined
-          transform: hideTopBars ? 'translateY(-88px)' : 'translateY(0%)'
+          top: '40px', // Height of the announcement bar
+          transform: hideTopBars ? 'translateY(-40px)' : 'translateY(0%)'
         }}
       >
         <Header isCompact={hideTopBars} />

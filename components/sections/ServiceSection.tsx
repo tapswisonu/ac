@@ -158,11 +158,10 @@ export default function ServiceSection() {
 function ServiceCard({ svc }: { svc: typeof services[0] }) {
   return (
     <article
-      className={`group relative bg-white rounded-2xl p-7 flex flex-col border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#1E4E8C]/8 ${
-        svc.featured
+      className={`group relative bg-white rounded-2xl p-7 flex flex-col border transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-[#1E4E8C]/8 ${svc.featured
           ? 'border-[#4CAF50] shadow-[0_2px_20px_rgba(76,175,80,0.12)]'
           : 'border-slate-200 shadow-sm hover:border-[#1E4E8C]/30'
-      }`}
+        }`}
     >
       {/* Green top accent bar on featured */}
       {svc.featured && (
@@ -172,11 +171,10 @@ function ServiceCard({ svc }: { svc: typeof services[0] }) {
       {/* Badge */}
       {svc.badge && (
         <div
-          className={`absolute top-5 right-5 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${
-            svc.featured
+          className={`absolute top-5 right-5 text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full ${svc.featured
               ? 'bg-[#4CAF50]/10 text-[#4CAF50] border border-[#4CAF50]/30'
               : 'bg-[#1E4E8C]/8 text-[#1E4E8C] border border-[#1E4E8C]/15'
-          }`}
+            }`}
         >
           {svc.badge}
         </div>
@@ -184,11 +182,10 @@ function ServiceCard({ svc }: { svc: typeof services[0] }) {
 
       {/* Icon */}
       <div
-        className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 ${
-          svc.featured
+        className={`w-14 h-14 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 ${svc.featured
             ? 'bg-[#4CAF50]/10 text-[#4CAF50] group-hover:bg-[#4CAF50] group-hover:text-white'
             : 'bg-[#1E4E8C]/6 text-[#1E4E8C] group-hover:bg-[#1E4E8C] group-hover:text-white'
-        }`}
+          }`}
       >
         <svc.icon className="w-7 h-7" />
       </div>
@@ -221,11 +218,10 @@ function ServiceCard({ svc }: { svc: typeof services[0] }) {
       {/* CTA */}
       <Link
         href={svc.href}
-        className={`mt-auto inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 group/cta ${
-          svc.featured
+        className={`mt-auto inline-flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm transition-all duration-300 group/cta ${svc.featured
             ? 'bg-[#4CAF50] hover:bg-[#43A047] text-white shadow-[0_4px_14px_rgba(76,175,80,0.25)] hover:shadow-[0_6px_18px_rgba(76,175,80,0.35)] hover:-translate-y-0.5'
             : 'border border-[#1E4E8C]/25 text-[#1E4E8C] hover:bg-[#1E4E8C] hover:text-white hover:border-[#1E4E8C]'
-        }`}
+          }`}
       >
         Get Started
         <ArrowRight className="w-4 h-4 group-hover/cta:translate-x-0.5 transition-transform" />

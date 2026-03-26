@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  ChevronDown, Menu, X, Building2, Landmark, Globe,
+  ChevronDown, Menu, X, Building2, Landmark,
   FileText, Receipt, Users, Award, Briefcase, Banknote, Building,
   Star, ShieldCheck, Zap, TrendingUp, ChevronRight
 } from "lucide-react";
@@ -60,50 +60,93 @@ const megaMenuData = [
     popular: ["Private Limited Company", "LLP Registration", "Udyam (MSME) Registration"],
   },
   {
-    name: "Trademark & IP",
+    name: "RA Licence",
     columns: [
       {
-        title: "Trademark",
+        title: "RA Registration",
+        icon: <Award className="w-4 h-4" />,
+        links: [
+          { title: "RA License Registration", url: "/services/ra-license" },
+          { title: "RA License Renewal", url: "/services/ra-renewal" },
+          { title: "RA Registration Amendment", url: "/services/ra-amendment" },
+          { title: "RA License Revocation", url: "/services/ra-revocation" },
+        ],
+      },
+      {
+        title: "Aviation Security",
         icon: <ShieldCheck className="w-4 h-4" />,
         links: [
-          { title: "Trademark Registration", url: "/services/trademark-registration" },
-          { title: "Trademark Objection Reply", url: "/services/trademark-objection" },
-          { title: "Trademark Opposition", url: "/services/trademark-opposition" },
-          { title: "Trademark Renewal", url: "/services/trademark-renewal" },
-          { title: "Trademark Transfer", url: "/services/trademark-transfer" },
-          { title: "Trademark Rectification", url: "/services/trademark-rectification" },
-          { title: "Trademark Hearing", url: "/services/trademark-hearing" },
+          { title: "Aviation Security Training", url: "/services/aviation-security-training" },
+          { title: "RA Training (Category 1-12)", url: "/services/ra-training" },
+          { title: "Security Program Approval", url: "/services/security-program" },
         ],
       },
       {
-        title: "Copyright & Patent",
+        title: "Compliance & Audit",
         icon: <FileText className="w-4 h-4" />,
         links: [
-          { title: "Copyright Registration", url: "/services/copyright-registration" },
-          { title: "Copyright Objection", url: "/services/copyright-objection" },
-          { title: "Patent Registration", url: "/services/patent" },
-          { title: "Design Registration", url: "/services/design-registration" },
+          { title: "RA Annual Compliance", url: "/services/ra-annual-compliance" },
+          { title: "RA Internal Audit", url: "/services/ra-audit" },
+          { title: "RA Site Verification", url: "/services/ra-site-verification" },
         ],
       },
       {
-        title: "Brand & International",
-        icon: <Globe className="w-4 h-4" />,
-        links: [
-          { title: "Logo Design", url: "/services/logo-design" },
-          { title: "International Trademark", url: "/services/international-trademark" },
-        ],
-      },
-      {
-        title: "Popular",
+        title: "Popular Services",
         icon: <Star className="w-4 h-4" />,
         links: [
-          { title: "Trademark Registration", url: "/services/trademark-registration" },
-          { title: "Copyright Registration", url: "/services/copyright-registration" },
+          { title: "RA License Registration", url: "/services/ra-license" },
+          { title: "Aviation Security Training", url: "/services/aviation-security-training" },
+          { title: "IATA Registration", url: "/services/iata" },
         ],
       },
     ],
-    popular: ["Trademark Registration", "Patent Registration"],
+    popular: ["RA License", "Security Training", "IATA"],
   },
+  // {
+  //   name: "Trademark & IP",
+  //   columns: [
+  //     {
+  //       title: "Trademark",
+  //       icon: <ShieldCheck className="w-4 h-4" />,
+  //       links: [
+  //         { title: "Trademark Registration", url: "/services/trademark-registration" },
+  //         { title: "Trademark Objection Reply", url: "/services/trademark-objection" },
+  //         { title: "Trademark Opposition", url: "/services/trademark-opposition" },
+  //         { title: "Trademark Renewal", url: "/services/trademark-renewal" },
+  //         { title: "Trademark Transfer", url: "/services/trademark-transfer" },
+  //         { title: "Trademark Rectification", url: "/services/trademark-rectification" },
+  //         { title: "Trademark Hearing", url: "/services/trademark-hearing" },
+  //       ],
+  //     },
+  //     {
+  //       title: "Copyright & Patent",
+  //       icon: <FileText className="w-4 h-4" />,
+  //       links: [
+  //         { title: "Copyright Registration", url: "/services/copyright-registration" },
+  //         { title: "Copyright Objection", url: "/services/copyright-objection" },
+  //         { title: "Patent Registration", url: "/services/patent" },
+  //         { title: "Design Registration", url: "/services/design-registration" },
+  //       ],
+  //     },
+  //     {
+  //       title: "Brand & International",
+  //       icon: <Globe className="w-4 h-4" />,
+  //       links: [
+  //         { title: "Logo Design", url: "/services/logo-design" },
+  //         { title: "International Trademark", url: "/services/international-trademark" },
+  //       ],
+  //     },
+  //     // {
+  //     //   title: "Popular",
+  //     //   icon: <Star className="w-4 h-4" />,
+  //     //   links: [
+  //     //     { title: "Trademark Registration", url: "/services/trademark-registration" },
+  //     //     { title: "Copyright Registration", url: "/services/copyright-registration" },
+  //     //   ],
+  //     // },
+  //   ],
+  //   popular: ["Trademark Registration", "Patent Registration"],
+  // },
   {
     name: "Licenses",
     columns: [
@@ -125,7 +168,6 @@ const megaMenuData = [
         links: [
           { title: "BIS Certification", url: "/services/bis-certification" },
           { title: "CE Certification", url: "/services/ce-certification" },
-          { title: "Halal Certification", url: "/services/halal-certification" },
           { title: "NSIC Registration", url: "/services/nsic" },
           { title: "RCMC Registration", url: "/services/rcmc" },
         ],
@@ -144,7 +186,6 @@ const megaMenuData = [
         icon: <Users className="w-4 h-4" />,
         links: [
           { title: "IATA Registration", url: "/services/iata" },
-          { title: "RA License", url: "/services/ra-license" },
           { title: "Overseas Recruitment Agent", url: "/services/overseas-recruitment" },
         ],
       },
@@ -183,14 +224,7 @@ const megaMenuData = [
           { title: "GST E-Way Bill", url: "/services/gst-eway" },
         ],
       },
-      {
-        title: "Popular",
-        icon: <Star className="w-4 h-4" />,
-        links: [
-          { title: "GST Registration", url: "/services/gst-registration" },
-          { title: "GST Return Filing", url: "/services/gst-return" },
-        ],
-      },
+
     ],
     popular: ["GST Registration", "GST Return Filing"],
   },
@@ -225,14 +259,14 @@ const megaMenuData = [
           { title: "Income Tax Notice Handling", url: "/services/it-notice" },
         ],
       },
-      {
-        title: "Popular",
-        icon: <Star className="w-4 h-4" />,
-        links: [
-          { title: "ITR Filing", url: "/services/itr-filing" },
-          { title: "TDS Return", url: "/services/tds-return" },
-        ],
-      },
+      // {
+      //   title: "Popular",
+      //   icon: <Star className="w-4 h-4" />,
+      //   links: [
+      //     { title: "ITR Filing", url: "/services/itr-filing" },
+      //     { title: "TDS Return", url: "/services/tds-return" },
+      //   ],
+      // },
     ],
     popular: ["Income Tax Return Filing", "TDS Return Filing"],
   },
@@ -306,14 +340,14 @@ const megaMenuData = [
           { title: "Professional Tax Registration", url: "/services/professional-tax" },
         ],
       },
-      {
-        title: "Popular",
-        icon: <Star className="w-4 h-4" />,
-        links: [
-          { title: "PF Registration", url: "/services/pf-registration" },
-          { title: "Payroll Management", url: "/services/payroll" },
-        ],
-      },
+      // {
+      //   title: "Popular",
+      //   icon: <Star className="w-4 h-4" />,
+      //   links: [
+      //     { title: "PF Registration", url: "/services/pf-registration" },
+      //     { title: "Payroll Management", url: "/services/payroll" },
+      //   ],
+      // },
       {
         title: "Quick Links",
         icon: <Zap className="w-4 h-4" />,
@@ -325,45 +359,45 @@ const megaMenuData = [
     ],
     popular: ["PF Registration", "ESIC Registration"],
   },
-  {
-    name: "ISO & Certs",
-    columns: [
-      {
-        title: "Quality & Environment",
-        icon: <Award className="w-4 h-4" />,
-        links: [
-          { title: "ISO 9001 – Quality Management", url: "/services/iso-9001" },
-          { title: "ISO 14001 – Environment", url: "/services/iso-14001" },
-          { title: "ISO 45001 – Safety", url: "/services/iso-45001" },
-        ],
-      },
-      {
-        title: "Food Safety",
-        icon: <ShieldCheck className="w-4 h-4" />,
-        links: [
-          { title: "ISO 22000 – Food Safety", url: "/services/iso-22000" },
-          { title: "HACCP Certification", url: "/services/haccp" },
-          { title: "FSSC 22000", url: "/services/fssc-22000" },
-        ],
-      },
-      {
-        title: "Information Security",
-        icon: <ShieldCheck className="w-4 h-4" />,
-        links: [
-          { title: "ISO 27001 – InfoSec", url: "/services/iso-27001" },
-        ],
-      },
-      {
-        title: "Popular",
-        icon: <Star className="w-4 h-4" />,
-        links: [
-          { title: "ISO 9001 Certification", url: "/services/iso-9001" },
-          { title: "ISO 22000 Certification", url: "/services/iso-22000" },
-        ],
-      },
-    ],
-    popular: ["ISO 9001", "ISO 22000", "HACCP"],
-  },
+  // {
+  //   name: "ISO & Certs",
+  //   columns: [
+  //     {
+  //       title: "Quality & Environment",
+  //       icon: <Award className="w-4 h-4" />,
+  //       links: [
+  //         { title: "ISO 9001 – Quality Management", url: "/services/iso-9001" },
+  //         { title: "ISO 14001 – Environment", url: "/services/iso-14001" },
+  //         { title: "ISO 45001 – Safety", url: "/services/iso-45001" },
+  //       ],
+  //     },
+  //     {
+  //       title: "Food Safety",
+  //       icon: <ShieldCheck className="w-4 h-4" />,
+  //       links: [
+  //         { title: "ISO 22000 – Food Safety", url: "/services/iso-22000" },
+  //         { title: "HACCP Certification", url: "/services/haccp" },
+  //         { title: "FSSC 22000", url: "/services/fssc-22000" },
+  //       ],
+  //     },
+  //     {
+  //       title: "Information Security",
+  //       icon: <ShieldCheck className="w-4 h-4" />,
+  //       links: [
+  //         { title: "ISO 27001 – InfoSec", url: "/services/iso-27001" },
+  //       ],
+  //     },
+  //     {
+  //       title: "Popular",
+  //       icon: <Star className="w-4 h-4" />,
+  //       links: [
+  //         { title: "ISO 9001 Certification", url: "/services/iso-9001" },
+  //         { title: "ISO 22000 Certification", url: "/services/iso-22000" },
+  //       ],
+  //     },
+  //   ],
+  //   popular: ["ISO 9001", "ISO 22000", "HACCP"],
+  // },
   {
     name: "Consulting",
     columns: [
@@ -396,14 +430,14 @@ const megaMenuData = [
           { title: "EHS Audit", url: "/services/ehs-audit" },
         ],
       },
-      {
-        title: "Popular",
-        icon: <Star className="w-4 h-4" />,
-        links: [
-          { title: "Accounting Services", url: "/services/accounting" },
-          { title: "Tax Planning", url: "/services/tax-planning" },
-        ],
-      },
+      // {
+      //   title: "Popular",
+      //   icon: <Star className="w-4 h-4" />,
+      //   links: [
+      //     { title: "Accounting Services", url: "/services/accounting" },
+      //     { title: "Tax Planning", url: "/services/tax-planning" },
+      //   ],
+      // },
     ],
     popular: ["Accounting Services", "Due Diligence"],
   },
@@ -428,14 +462,14 @@ const megaMenuData = [
           { title: "Project Finance", url: "/services/project-finance" },
         ],
       },
-      {
-        title: "Popular",
-        icon: <Star className="w-4 h-4" />,
-        links: [
-          { title: "Business Loan", url: "/services/business-loan" },
-          { title: "Working Capital Loan", url: "/services/working-capital" },
-        ],
-      },
+      // {
+      //   title: "Popular",
+      //   icon: <Star className="w-4 h-4" />,
+      //   links: [
+      //     { title: "Business Loan", url: "/services/business-loan" },
+      //     { title: "Working Capital Loan", url: "/services/working-capital" },
+      //   ],
+      // },
       {
         title: "Quick Links",
         icon: <Zap className="w-4 h-4" />,
@@ -447,80 +481,119 @@ const megaMenuData = [
     ],
     popular: ["Business Loan", "Working Capital"],
   },
-  {
-    name: "Global Setup",
-    columns: [
-      {
-        title: "Company Formation",
-        icon: <Globe className="w-4 h-4" />,
-        links: [
-          { title: "UAE Company Formation", url: "/services/uae-company" },
-          { title: "USA Company Formation", url: "/services/usa-company-registration" },
-          { title: "UK Company Formation", url: "/services/uk-company" },
-          { title: "Singapore Company Formation", url: "/services/singapore-company" },
-        ],
-      },
-      {
-        title: "International IP & License",
-        icon: <ShieldCheck className="w-4 h-4" />,
-        links: [
-          { title: "International Trademark", url: "/services/international-trademark" },
-          { title: "UAE eCommerce License", url: "/services/uae-ecommerce" },
-          { title: "UAE Embassy Attestation", url: "/services/uae-attestation" },
-        ],
-      },
-      {
-        title: "Popular",
-        icon: <Star className="w-4 h-4" />,
-        links: [
-          { title: "USA Company Formation", url: "/services/usa-company-registration" },
-          { title: "UAE Company Formation", url: "/services/uae-company" },
-        ],
-      },
-      {
-        title: "Quick Links",
-        icon: <Zap className="w-4 h-4" />,
-        links: [
-          { title: "Singapore Company", url: "/services/singapore-company" },
-          { title: "International Trademark", url: "/services/international-trademark" },
-        ],
-      },
-    ],
-    popular: ["USA Company", "UAE Company"],
-  },
+  // {
+  //   name: "Global Setup",
+  //   columns: [
+  //     {
+  //       title: "Company Formation",
+  //       icon: <Globe className="w-4 h-4" />,
+  //       links: [
+  //         { title: "UAE Company Formation", url: "/services/uae-company" },
+  //         { title: "USA Company Formation", url: "/services/usa-company-registration" },
+  //         { title: "UK Company Formation", url: "/services/uk-company" },
+  //         { title: "Singapore Company Formation", url: "/services/singapore-company" },
+  //       ],
+  //     },
+  //     {
+  //       title: "International IP & License",
+  //       icon: <ShieldCheck className="w-4 h-4" />,
+  //       links: [
+  //         { title: "International Trademark", url: "/services/international-trademark" },
+  //         { title: "UAE eCommerce License", url: "/services/uae-ecommerce" },
+  //         { title: "UAE Embassy Attestation", url: "/services/uae-attestation" },
+  //       ],
+  //     },
+  //     {
+  //       title: "Popular",
+  //       icon: <Star className="w-4 h-4" />,
+  //       links: [
+  //         { title: "USA Company Formation", url: "/services/usa-company-registration" },
+  //         { title: "UAE Company Formation", url: "/services/uae-company" },
+  //       ],
+  //     },
+  //     {
+  //       title: "Quick Links",
+  //       icon: <Zap className="w-4 h-4" />,
+  //       links: [
+  //         { title: "Singapore Company", url: "/services/singapore-company" },
+  //         { title: "International Trademark", url: "/services/international-trademark" },
+  //       ],
+  //     },
+  //   ],
+  //   popular: ["USA Company", "UAE Company"],
+  // },
 ];
 
 /* ─────────────────────────────────────────
    MEGA MENU DROPDOWN
 ───────────────────────────────────────── */
-function MegaMenuDropdown({ menu, alignment = "center" }: { menu: typeof megaMenuData[0]; alignment?: "left" | "center" | "right" }) {
-  const alignmentClass =
-    alignment === "left"
-      ? "left-0"
-      : alignment === "right"
-      ? "right-0"
-      : "left-1/2 -translate-x-1/2";
+function MegaMenuDropdown({ menu, closeMenu }: { menu: typeof megaMenuData[0]; closeMenu: () => void }) {
+  const [popularServices, setPopularServices] = useState<string[]>(menu.popular);
+
+  useEffect(() => {
+    try {
+      const trackingKey = 'aj_service_clicks';
+      const clicks = JSON.parse(localStorage.getItem(trackingKey) || '{}');
+      const allLinks = menu.columns.flatMap(c => c.links);
+
+      const sorted = [...allLinks]
+        .filter(l => (clicks[l.title] || 0) > 0)
+        .sort((a, b) => (clicks[b.title] || 0) - (clicks[a.title] || 0));
+
+      if (sorted.length > 0) {
+        setPopularServices(sorted.slice(0, 2).map(l => l.title));
+      } else {
+        setPopularServices(menu.popular);
+      }
+    } catch {
+      // ignore
+    }
+  }, [menu]);
+
+  const handleLinkClick = (title: string) => {
+    try {
+      const trackingKey = 'aj_service_clicks';
+      const clicks = JSON.parse(localStorage.getItem(trackingKey) || '{}');
+      clicks[title] = (clicks[title] || 0) + 1;
+      localStorage.setItem(trackingKey, JSON.stringify(clicks));
+    } catch { }
+    closeMenu();
+  };
+
+  // Calculate explicit width to prevent box from unexpectedly shrinking against viewport edges
+  const boxWidth = menu.columns.length * 240 + 40;
 
   return (
-    <div className={`absolute top-full ${alignmentClass} w-[780px] xl:w-[860px] bg-white backdrop-blur-xl border border-slate-100 shadow-[0_20px_40px_rgba(0,0,0,0.08)] rounded-2xl overflow-hidden z-50 mt-2`}>
+    <div
+      className="bg-white backdrop-blur-xl border border-slate-100 shadow-[0_20px_40px_rgba(0,0,0,0.08)] rounded-2xl overflow-hidden shadow-2xl"
+      style={{ width: `${boxWidth}px`, maxWidth: '95vw' }}
+    >
       {/* Popular strip */}
       <div className="bg-slate-50 border-b border-slate-100 px-6 py-3.5 flex items-center gap-3">
         <Star className="w-4 h-4 text-[#1E4E8C] shrink-0" />
         <span className="text-xs font-bold text-[#1E4E8C] uppercase tracking-wider mr-2">Popular:</span>
-        {menu.popular.map((p, i) => (
-          <span key={i} className="text-[11px] font-bold bg-white border border-slate-200 text-slate-600 px-3 py-1 rounded-full hover:bg-slate-100 cursor-pointer transition-colors shadow-sm">
-            {p}
-          </span>
-        ))}
+        {popularServices.map((p, i) => {
+          const matchingLink = menu.columns.flatMap(c => c.links).find(l => l.title === p);
+          return (
+            <Link
+              href={matchingLink?.url || '#'}
+              key={i}
+              onClick={() => { if (matchingLink) handleLinkClick(matchingLink.title); }}
+              className="text-[11px] font-bold bg-white border border-slate-200 text-slate-600 px-3 py-1 rounded-full hover:bg-slate-100 cursor-pointer transition-colors shadow-sm"
+            >
+              {p}
+            </Link>
+          );
+        })}
       </div>
 
-      {/* 4-column grid */}
-      <div className="grid grid-cols-4 gap-2 p-4">
+      {/* Grid adjusting based on columns count, giving each column 250px base width so text never wraps too tightly */}
+      <div className="grid gap-2 p-4" style={{ gridTemplateColumns: `repeat(${menu.columns.length}, minmax(0, 1fr))` }}>
         {menu.columns.map((col, idx) => (
           <div key={idx} className={`flex flex-col p-3 rounded-xl hover:bg-slate-50/50 transition-colors ${idx < menu.columns.length - 1 ? "border-r border-slate-50" : ""}`}>
             <div className="flex items-center gap-2 mb-4">
               <div className="w-8 h-8 rounded-lg bg-blue-50 text-[#1E4E8C] flex items-center justify-center shadow-sm border border-blue-100/50 shrink-0">
-                 {React.cloneElement(col.icon as React.ReactElement, { className: 'w-4 h-4' })}
+                {React.cloneElement(col.icon as React.ReactElement, { className: 'w-4 h-4' })}
               </div>
               <h3 className="text-[11px] font-bold tracking-wider text-[#1E4E8C] uppercase px-1">{col.title}</h3>
             </div>
@@ -529,6 +602,7 @@ function MegaMenuDropdown({ menu, alignment = "center" }: { menu: typeof megaMen
                 <li key={lidx}>
                   <Link
                     href={link.url}
+                    onClick={() => handleLinkClick(link.title)}
                     className="block px-3 py-2 rounded-lg text-[13px] font-medium text-slate-600 hover:text-[#4CAF50] hover:bg-green-50/60 transition-all flex items-center justify-between group"
                   >
                     <span>{link.title}</span>
@@ -566,19 +640,19 @@ export default function Header({ isCompact = false }: { isCompact?: boolean }) {
 
   return (
     <header className={`w-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] z-40 border-b ${isCompact ? 'bg-white/90 backdrop-blur-md shadow-md border-slate-200/50' : 'bg-white border-transparent'}`}>
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className={`flex justify-between items-center transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isCompact ? 'h-[60px]' : 'h-[72px]'}`}>
 
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center gap-2">
               <div className="relative w-40 h-10 sm:w-48 sm:h-12">
-                <Image 
-                  src="/biglogo.png" 
-                  alt="Aj Accounting Group Logo" 
-                  fill 
-                  className="object-contain object-left" 
-                  priority 
+                <Image
+                  src="/biglogo.png"
+                  alt="Aj Accounting Group Logo"
+                  fill
+                  className="object-contain object-left"
+                  priority
                 />
               </div>
             </Link>
@@ -586,36 +660,47 @@ export default function Header({ isCompact = false }: { isCompact?: boolean }) {
 
           {/* Desktop Mega Nav */}
           <nav className="hidden xl:flex items-center h-full relative">
-            {megaMenuData.map((menu, index) => {
-              let alignment: "left" | "center" | "right" = "center";
-              if (index < 4) alignment = "left";
-              else if (index > 6) alignment = "right";
+            {megaMenuData.map((menu) => {
+
 
               return (
-              <div
-                key={menu.name}
-                className="relative h-full flex items-center"
-                onMouseEnter={() => handleMouseEnter(menu.name)}
-                onMouseLeave={handleMouseLeave}
-              >
-                <button className={`flex items-center gap-0.5 px-3 py-2 rounded-lg text-[13px] font-bold whitespace-nowrap transition-colors ${activeMenu === menu.name ? "text-[#1E4E8C] bg-blue-50" : "text-[#1E4E8C] hover:text-[#4CAF50] hover:bg-slate-50"}`}>
-                  {menu.name}
-                  <ChevronDown className={`w-3.5 h-3.5 mt-0.5 transition-transform duration-200 ${activeMenu === menu.name ? "rotate-180" : ""}`} />
-                </button>
+                <div
+                  key={menu.name}
+                  className="relative h-full flex items-center"
+                  onMouseEnter={() => handleMouseEnter(menu.name)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  <button className={`flex items-center gap-0.5 px-3 py-2 rounded-lg text-[13px] font-bold whitespace-nowrap transition-colors ${activeMenu === menu.name ? "text-[#1E4E8C] bg-blue-50" : "text-[#1E4E8C] hover:text-[#4CAF50] hover:bg-slate-50"}`}>
+                    {menu.name}
+                    <ChevronDown className={`w-3.5 h-3.5 mt-0.5 transition-transform duration-200 ${activeMenu === menu.name ? "rotate-180" : ""}`} />
+                  </button>
 
-                {/* Active indicator bar */}
-                {activeMenu === menu.name && (
-                  <div className="absolute bottom-0 left-4 right-4 h-[3px] bg-[#4CAF50] rounded-t-lg" />
-                )}
-
-                {/* Mega menu */}
-                {activeMenu === menu.name && <MegaMenuDropdown menu={menu} alignment={alignment} />}
-              </div>
-            );
+                  {/* Active indicator bar */}
+                  {activeMenu === menu.name && (
+                    <div className="absolute bottom-0 left-4 right-4 h-[3px] bg-[#4CAF50] rounded-t-lg" />
+                  )}
+                </div>
+              );
             })}
           </nav>
 
-          
+          {/* Render active Mega Menu globally relative to the max-w-[1400px] header wrapper */}
+          <div className="hidden xl:block">
+            {activeMenu && (
+              <div
+                className="absolute top-[100%] left-1/2 -translate-x-1/2 z-50 pt-2"
+                onMouseEnter={() => handleMouseEnter(activeMenu)}
+                onMouseLeave={handleMouseLeave}
+              >
+                <MegaMenuDropdown
+                  menu={megaMenuData.find(m => m.name === activeMenu)!}
+                  closeMenu={() => setActiveMenu(null)}
+                />
+              </div>
+            )}
+          </div>
+
+
 
 
           {/* Mobile: hamburger */}

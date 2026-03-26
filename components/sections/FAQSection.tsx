@@ -129,7 +129,7 @@ export default function FAQSection() {
               Still have questions?
             </h3>
             <p className="text-white/65 text-[15px] mb-7 max-w-lg mx-auto leading-relaxed">
-              Our compliance experts are available Mon–Sat, 9 AM–7 PM. Get personalised advice
+              Our compliance experts are available Mon–Sat, 10 AM–6 PM. Get personalised advice
               from a qualified CA or CS — free of charge.
             </p>
             <Link

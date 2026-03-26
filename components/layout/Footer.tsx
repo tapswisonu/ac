@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Mail, MapPin, Phone, Star, Linkedin, Instagram, Facebook, MessageCircle, CheckCircle2, ChevronRight } from 'lucide-react';
+import { Mail, MapPin, Phone, Star, Linkedin, Instagram, Facebook, MessageCircle, Youtube, CheckCircle2, ChevronRight } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -76,7 +76,7 @@ export default function Footer() {
                   <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20">
                     <MapPin className="w-4 h-4 text-white" />
                   </div>
-                  <a href="#" className="hover:text-[#4CAF50] transition-colors leading-relaxed mt-1">
+                  <a href="https://share.google/Q7IlTOBy0cWA23NYq" target="_blank" rel="noopener noreferrer" className="hover:text-[#4CAF50] transition-colors leading-relaxed mt-1">
                     No G 16, Dharmpali Palace,<br />Sector 27, Noida 201301
                   </a>
                 </li>
@@ -136,11 +136,14 @@ export default function Footer() {
               <a href="#" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#4CAF50] border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-sm">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#4CAF50] border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-sm">
+              <a href="#" aria-label="Facebook" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#4CAF50] border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-sm">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#4CAF50] border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-sm">
+              <a href="https://www.whatsapp.com/channel/0029VaEiRvAHFxP4QWzlK03m" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Channel" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#4CAF50] border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-sm">
                 <MessageCircle className="w-5 h-5" />
+              </a>
+              <a href="https://www.youtube.com/@Ajaccountinggroup" target="_blank" rel="noopener noreferrer" aria-label="YouTube Channel" className="w-12 h-12 rounded-full bg-white/10 hover:bg-[#4CAF50] border border-white/15 flex items-center justify-center text-white/70 hover:text-white transition-all duration-300 hover:-translate-y-1 shadow-sm">
+                <Youtube className="w-5 h-5" />
               </a>
             </div>
           </div>

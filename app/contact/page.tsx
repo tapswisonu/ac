@@ -8,13 +8,13 @@ import {
 } from 'lucide-react';
 
 const services = [
+  'RA Licence',
   'Company Registration',
   'ROC / MCA Filing',
   'GST Registration & Filing',
   'Income Tax Return',
   'Trademark Filing',
   'FSSAI License',
-  'ISO Certification',
   'Legal Compliance',
   'Other Query',
 ];
@@ -24,7 +24,7 @@ const contactDetails = [
     icon: Phone,
     label: 'Call Us Directly',
     value: '+91 9643 862 867',
-    sub: 'Mon – Sat, 9:00 AM – 7:00 PM',
+    sub: 'Mon – Sat, 10:00 AM – 6:00 PM',
     href: 'tel:+919643862867',
     color: 'text-[#1E4E8C]',
     bg: 'bg-[#1E4E8C]/8',
@@ -51,7 +51,7 @@ const contactDetails = [
     icon: Clock,
     label: 'Office Hours',
     value: 'Mon – Sat',
-    sub: '9:00 AM – 7:00 PM IST',
+    sub: '10:00 AM – 6:00 PM IST',
     href: null,
     color: 'text-[#4CAF50]',
     bg: 'bg-[#4CAF50]/8',
@@ -401,15 +401,13 @@ export default function ContactPage() {
                 href={method.href}
                 target={method.href.startsWith('http') ? '_blank' : undefined}
                 rel="noopener noreferrer"
-                className={`group flex flex-col items-center text-center p-7 rounded-2xl border transition-all hover:-translate-y-1 hover:shadow-lg ${
-                  method.primary
-                    ? 'bg-[#4CAF50] border-[#4CAF50] text-white shadow-[0_4px_20px_rgba(76,175,80,0.2)] hover:shadow-[0_8px_28px_rgba(76,175,80,0.3)]'
-                    : 'bg-white border-slate-200 hover:border-[#1E4E8C]/30'
-                }`}
+                className={`group flex flex-col items-center text-center p-7 rounded-2xl border transition-all hover:-translate-y-1 hover:shadow-lg ${method.primary
+                  ? 'bg-[#4CAF50] border-[#4CAF50] text-white shadow-[0_4px_20px_rgba(76,175,80,0.2)] hover:shadow-[0_8px_28px_rgba(76,175,80,0.3)]'
+                  : 'bg-white border-slate-200 hover:border-[#1E4E8C]/30'
+                  }`}
               >
-                <div className={`w-13 h-13 w-14 h-14 rounded-2xl flex items-center justify-center mb-4 ${
-                  method.primary ? 'bg-white/20' : 'bg-[#1E4E8C]/6'
-                }`}>
+                <div className={`w-13 h-13 w-14 h-14 rounded-2xl flex items-center justify-center mb-4 ${method.primary ? 'bg-white/20' : 'bg-[#1E4E8C]/6'
+                  }`}>
                   <method.icon className={`w-6 h-6 ${method.primary ? 'text-white' : 'text-[#1E4E8C]'}`} />
                 </div>
                 <p className={`text-[11px] font-bold uppercase tracking-widest mb-1 ${method.primary ? 'text-white/70' : 'text-slate-400'}`}>
@@ -421,11 +419,10 @@ export default function ContactPage() {
                 <p className={`text-[13px] mb-5 ${method.primary ? 'text-white/70' : 'text-slate-500'}`}>
                   {method.desc}
                 </p>
-                <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full transition-colors ${
-                  method.primary
-                    ? 'bg-white text-[#4CAF50]'
-                    : 'bg-[#1E4E8C]/8 text-[#1E4E8C] group-hover:bg-[#1E4E8C] group-hover:text-white'
-                }`}>
+                <span className={`inline-flex items-center gap-1.5 text-xs font-bold px-4 py-2 rounded-full transition-colors ${method.primary
+                  ? 'bg-white text-[#4CAF50]'
+                  : 'bg-[#1E4E8C]/8 text-[#1E4E8C] group-hover:bg-[#1E4E8C] group-hover:text-white'
+                  }`}>
                   {method.cta}
                   <ArrowRight className="w-3 h-3" />
                 </span>
